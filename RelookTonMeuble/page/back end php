@@ -1,0 +1,102 @@
+page de connection 
+///////////////////////////////////
+<?php
+session_start();
+?>
+<html>
+<head>
+	<title>Accueil</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<?php if($_SESSION['connecte']=='oui'){
+	echo $_SESSION['login'];
+	echo"<input type='button' value='Deconnection' OnClick='direction()'/>";
+	}
+	else{
+		echo"<input type='button' value='Gestion' OnClick='Gestion()'/>";
+		echo"<input type='button' value='Connection' OnClick='connection()'/>";
+		echo"<input type='button' value='Inscription' OnClick='inscription()'/>";
+	}
+?>
+<form method="post" action="login.php">
+	<?php 
+		$queries = array();
+		parse_str($_SERVER['QUERY_STRING'], $queries);
+		foreach ($queries as $value){
+			if($value="erreur"){
+				echo("/!\\ erreur de connexion /!\\");
+				echo("<br />");
+				}
+			}
+	?>
+	<label>login </label><input type="text" name="login" id="login"/>
+	<label>mot de passe</label><input type="password" name="mdp" id="mdp"/>
+	<input type="submit" name="Identifiez moi" />
+	
+
+</form>
+</body>
+</html>
+//////////////////////////////////////////////////////////////
+php pour se connecter
+//////////////////////////////////////////////////////////////
+
+<?php
+ini_set('display_errors', 1);
+error_reporting(-1);
+
+//demarrer la session
+session_start();
+
+$utilisateur='user_17007005';
+$mdp='7&n4v,4V';
+
+try {
+	$bdd = new PDO('mysql:host=mysql.istic.univ-rennes1.fr;dbname=base_17007005', $utilisateur, $mdp);
+	$bdd->setattribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+	$pdostat=$bdd->query("SELECT login FROM ACCES");
+	foreach ($pdostat as $ligne){
+		echo"<p>".$ligne['login']."\n";
+		if($_POST['login'] == $ligne['login']){
+			$pdomdp=$bdd->query("SELECT mdp FROM ACCES where `login`='".$ligne['login']."'");
+			foreach ($pdomdp as $ligne){
+				if($_POST['mdp'] == $ligne['mdp']){
+				$_SESSION['connecte']="oui";
+				$_SESSION['login']=$_POST['login'];
+				echo($_SESSION['connecte']);
+				header('Location: accueil.php');
+				
+				exit();	
+				}
+			}
+		}
+		
+		
+	}
+		header('Location:connection.php?message=erreur');
+		exit();
+	echo"</p>";
+	
+}
+	
+catch (Exepction $e){
+	echo "<p>erreur : ".$e ->getMessage();
+	die();
+}
+
+
+
+//si le login vaut toto (a remplacer plus tard par une recherche dans la BDD)
+//créer une variable de session qui s'appelle connecte et qui vaut "oui"
+
+//creer une variable de session qui s'appelle login et qui vaut le login
+
+//puis rediriger vers la page privee 1
+
+//sinon rediriger vers la page d'accueil
+
+//foreach ($pdostat as $ligne){
+	
+
+?>
