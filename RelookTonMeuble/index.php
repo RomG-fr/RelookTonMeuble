@@ -24,7 +24,7 @@
 
 
 
-    <?php include "page/menu.html";?>
+    <?php include "menu.html";?>
     
     
 

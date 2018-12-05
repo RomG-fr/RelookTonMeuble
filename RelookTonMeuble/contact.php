@@ -23,7 +23,7 @@
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2663.7452668047736!2d-1.6405629847062004!3d48.11514947922164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480edee4490f4333%3A0x3c4238e97734ee99!2sISTIC!5e0!3m2!1sfr!2sfr!4v1543834583937" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 			</div>
 		</div>
-	<div>
+	<div class="row" style="margin-left:55px;">
 		<h2>Pour un relooking de meuble, envoyez nous un message avec une photo de celui-ci</h2>
 		<form>
 			<table>

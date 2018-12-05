@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>connexion</title>
+	<title>Connexion</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -26,7 +26,7 @@
           <li class="active"><a href="#" onclick="sign_in()">Se Connecter</a>
           <span class="linea_bajo_nom"></span>
           </li>
-          <li><a href="#up" onclick="sign_up()">Se Connecter</a><span class="linea_bajo_nom"></span>
+          <li><a href="#up" onclick="sign_up()">S'Inscrire</a><span class="linea_bajo_nom"></span>
           </li>
         </ul>
         </div>
@@ -40,12 +40,12 @@
       
       <a href="#" class="link_forgot_pass d_block" >Mot de passe oublié ?</a>    
   <div class="terms_and_cons d_none">
-      <p><input type="checkbox" name="terms_and_cons" /> <label for="terms_and_cons">Accept  Terms and Conditions.</label></p>
+      <p><input type="checkbox" name="terms_and_cons" /> <label for="terms_and_cons">Accepter les Termes et Conditions générales.</label></p>
     
       </div>
         </div>
   <div class="cont_btn">
-       <button class="btn_sign">SIGN IN</button>
+       <button class="btn_sign">Se Connecter</button>
         
         </div>
         
