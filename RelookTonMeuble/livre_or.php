@@ -4,6 +4,7 @@
 	<title>Livre d'Or</title>
 </head>
 <body>
+	<?php include "menu.html";?>
 	<div>
 		<h2>Laissez nous votre avis</h2>
 		<form>			
