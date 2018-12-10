@@ -71,15 +71,13 @@
 					<tr>
 						<td>CV*</td>
 						<td>
-							<input name="MAX_FILE_SIZE" type="hidden" value="3000" />
-							<input name="CV" type="file" />
+							<input name="cv" type="file" class="custom-file-input" id="customFileLang" lang="fr">
 						</td>
 					</tr>
 					<tr>
 						<td>Lettre de motivation*</td>
 						<td>
-							<input name="MAX_FILE_SIZE" type="hidden" value="3000" />
-							<input name="Lettre de motivation" type="file" />
+							<input name="lettredemotivation" type="file" class="custom-file-input" id="customFileLang" lang="fr">
 						</td>
 					</tr>
 				</table>
