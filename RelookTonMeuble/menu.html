@@ -1,7 +1,7 @@
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index.php" class="logo">
+    <a href="index.php" class="logo menu_gauche">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>RT</b>M</span>
       <!-- logo for regular state and mobile devices -->
@@ -9,7 +9,7 @@
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
+    <nav class="navbar navbar-static-top menu_haut">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
@@ -48,7 +48,7 @@
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar" id="menu_gauche">
+  <aside class="main-sidebar menu_gauche">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
@@ -74,9 +74,9 @@
       </form>
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">NAVIGAT</li>
-        <li class = "treeview">
+      <ul class="sidebar-menu" data-widget="tree" style="margin-top: 50px;">
+        <li class="header" style="color: #bbb; background: #374850; font-weight: bold;">NAVIGATION</li>
+        <li class = "treeview  lien_menu_gauche">
         	<a href="index.php">
         		<i class="fa fa-home"></i> <span>Accueil</span>
         	</a>
@@ -108,8 +108,17 @@
         		<i class="fa fa-book"></i> <span>Livre d'or</span>
         	</a>
         </li>
-        <li class="header">Connection</li>
-        <li class="header">Déconnection</li>
+        <li class="header"> </li>
+        <li>
+        	<a href="presentation.php">
+        		<i class="fa fa-dashboard"></i> <span>Connection</span>
+        	</a>
+        </li>
+        <li>
+        	<a href="contact.php">
+        		<i class="fa fa-envelope"></i> <span>Déconnection</span>
+        	</a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -1,8 +1,12 @@
+.menu_gauche{
+    background-image: url(../img/bois_sombre.png);
+}
 
+.menu_haut{
+    background-image: url(../img/bois.jpg);
+}
 
-
-#menu_gauche{
-    background-color: url('dist/img/bois.jpg');
-    background-color: rbg(0,0,0,0.8);
+.lien_menu_gauche:hover{
+    background-color: aqua;
 }
     
