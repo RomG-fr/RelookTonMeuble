@@ -57,12 +57,12 @@
           <img src="dist/img/secretaire.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexandra Pierce</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> En Ligne</a>
+          <p  style="color: azure; font-weight: bold;">Alexandra Pierce</p>
+          <p  style="color: silver;"><i class="fa fa-circle text-success"></i> En Ligne</p>
         </div>
       </div>
       <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
+      <form action="#" method="get" class="sidebar-form" id="barre_de_recherche">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Recherche...">
           <span class="input-group-btn">
@@ -75,14 +75,14 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree" style="margin-top: 50px;">
-        <li class="header" style="color: #bbb; background: #374850; font-weight: bold;">NAVIGATION</li>
-        <li class = "treeview  lien_menu_gauche">
+        <li class="header" id="separation_a">NAVIGATION</li>
+        <li>
         	<a href="index.php">
         		<i class="fa fa-home"></i> <span>Accueil</span>
         	</a>
         </li>
         <li>
-        	<a href="presentation.php">
+        	<a href="presentation.php" >
         		<i class="fa fa-dashboard"></i> <span>Présentation</span>
         	</a>
         </li>
@@ -93,14 +93,14 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-handshake"></i> <span>Stage</span>
+            <i class="fa fa-home"></i> <span>Stage</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="index.html"><i class="fa fa-circle-o"></i> Présentation de stage</a></li>
-            <li class="active"><a href="demande_de_stage.php"><i class="fa fa-circle-o"></i> Demande de stage</a></li>
+          <ul class="treeview-menu" style="margin-left: 10px;">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Présentation de stage</a></li>
+            <li><a href="demande_de_stage.php"><i class="fa fa-circle-o"></i> Demande de stage</a></li>
           </ul>
         </li>
          <li>
@@ -108,15 +108,15 @@
         		<i class="fa fa-book"></i> <span>Livre d'or</span>
         	</a>
         </li>
-        <li class="header"> </li>
+        <li class="header" id="separation_b"> </li>
         <li>
-        	<a href="presentation.php">
-        		<i class="fa fa-dashboard"></i> <span>Connection</span>
+        	<a href="connexion.php">
+        		<i class="fa fa-dashboard"></i> <span>Connexion</span>
         	</a>
         </li>
         <li>
-        	<a href="contact.php">
-        		<i class="fa fa-envelope"></i> <span>Déconnection</span>
+        	<a href="#">
+        		<i class="fa fa-envelope"></i> <span>Déconnexion</span>
         	</a>
         </li>
       </ul>
