@@ -47,8 +47,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-            Titre
-        <small>Sous-titre</small>
+            Creer un compte
+        <small>&nbsp;Remplir le formulaire</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Accueil</a></li>
@@ -62,21 +62,50 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-8">
-            
-                <h3>Formulaire de création de compte</h3>
-                        
+            <div>
                     
-                <div>
-                    Le formulaire sera ici plus tard.
+                <form action="">
+                        <div class="cont_tabs_login">
+                            <ul class='ul_tabs'>
+                            <li class="active">
+                                <a href="#" onclick="sign_in()">Se Connecter</a>
+                                <span class="linea_bajo_nom"></span>
+                            </li>
+                            <li>
+                                <a href="#up" onclick="sign_up()">S'inscrire</a>
+                                <span class="linea_bajo_nom"></span>
+                            </li>
+                        </ul>
+                        </div>
+                    <div class="cont_text_inputs">
+                        <input type="text" class="input_form_sign " placeholder="NAME" name="name_us" />
+
+                        <input type="text" class="input_form_sign d_block active_inp" placeholder="EMAIL" name="emauil_us" />
+
+                        <input type="password" class="input_form_sign d_block  active_inp" placeholder="PASSWORD" name="pass_us" />  
+                        <input type="password" class="input_form_sign" placeholder="Confirmer le MDP" name="conf_pass_us" />
+
+                        <a href="#" class="link_forgot_pass d_block" >Mot de passe oublié ?</a>    
+                        <div class="terms_and_cons d_none">
+                            <p>
+                                <input type="checkbox" name="terms_and_cons" /> 
+                                <label for="terms_and_cons">Accepter les Termes et Conditions générales.</label>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="cont_btn">
+                        <button class="btn_sign">Se Connecter</button>
+                    </div>
+                </form>    
+    
                 
-                
-                </div>
-                   
+            </div>
+                 <p style="text-align: left;">
+                           Vous possédez déjà un compte ? <span style="color: darkgoldenrod; cursor: pointer;" data-toggle="modal" data-target="#se_connecter"><u> Connectez vous</u></span>!
+                        </p>  
 
                     
-                <p>
-                    Pas encore de compte ? Vous pouvez en créer un en cliquant <span style="color: red; cursor: pointer;" data-toggle="modal" data-target="#creer_un_compte"><u>ici</u></span>.
-                </p>
+                
             </div>
             
             
@@ -85,33 +114,70 @@
         
         
         <!-- Modal -->
-        <div class="modal fade" id="creer_un_compte" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade" id="se_connecter" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
+                        <h3 class="modal-title">Se connecter</h3>
+                    </div> <!-- /.modal-header   --> 
 
                     <div class="modal-body">
-                       <!-- multistep form -->
-
-                    </div>
-
-                    <div class="modal-footer">
-                        <p style="text-align: left;">
-                           Vous possédez déjà un compte ? <span style="color: red; cursor: pointer;" data-dismiss="modal" data-target="#creer_un_compte"><u> Connectez vous</u></span>!
-                        </p>
-                        
-                        <button type="button" class="btn btn-secondary" data dismiss="modal">Annuler</button>
-                        <button type="button" class="btn btn-primary">Créer le compte</button>
-                    </div>
-                </div>
+                    
+                        <form class="form-horizontal" action="#">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="email">Email:</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="email" placeholder="Saisir votre email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="pwd">Mot de passe:</label>
+                                <div class="col-sm-10"> 
+                                <input type="password" class="form-control" id="pwd" placeholder="Saisir votre mot de passe">
+                                </div>
+                                <a style="margin-left: 15px; color: darkgoldenrod; cursor: pointer;" href="#"><u>Mot de passe oublié ?</u></a>
+                            </div>
+                            <div class="form-group"> 
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox"> Se souvenir de moi</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="modal-footer">
+                                <div class="row" style="padding : 15px; text-align: left;">
+                                    <div class="col-md-8">
+                                        <p>
+                                            Pas encore de compte ?<br>Vous pouvez en créer un en cliquant <span style="color: darkgoldenrod; cursor: pointer;" data-dismiss="modal" data-target="#se_connecter"><u>ici</u></span>.
+                                        </p>
+                                        
+                                    
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group"> 
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-primary">Se connecter</button>
+                                            </div>
+                                        </div>
+                                        
+                                    
+                                    </div>
+                                </div>
+                            </div><!-- /.modal-footer --> 
+                            
+                        </form>
+                    </div><!-- /.modal-body --> 
+                    
+                    
+                </div><!-- /.modal-content -->
             </div>
-        </div>
+        </div><!-- /.modal -->
         
         
         
