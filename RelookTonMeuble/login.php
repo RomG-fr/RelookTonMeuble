@@ -4,38 +4,39 @@ error_reporting(-1);
 
 //demarrer la session
 session_start();
+include'connection_bd.php';
 
-$utilisateur='user_17007005';
-$mdp='7&n4v,4V';
-
-try {
-	$bdd = new PDO('mysql:host=mysql.istic.univ-rennes1.fr;dbname=base_17007005', $utilisateur, $mdp);
-	$bdd->setattribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-	$pdostat=$bdd->query("SELECT login FROM utilisateur");
-	foreach ($pdostat as $ligne){
-		echo"<p>".$ligne['login']."\n";
-		if($_POST['login'] == $ligne['login']){
-			$pdomdp=$bdd->query("SELECT mdp FROM utilisateur where `login`='".$ligne['login']."'");
-			foreach ($pdomdp as $ligne){
-				if($_POST['mdp'] == $ligne['mdp']){
-				$_SESSION['connecte']="oui";
+//Vérifie si l'identifiant rentrée est présent dans la table des utilisateurs
+$pdostat=$bdd->query("SELECT login FROM utilisateur");
+if( isset($_POST['login']) && isset($_POST['mdp']) ){
+foreach ($pdostat as $ligne){
+	if($_POST['login'] == $ligne['login']){
+		
+		//Si l'utilisateur existe on vérifie si le mot de passe associé correspond
+		$pdomdp=$bdd->query("SELECT mdp FROM utilisateur where `login`='".$ligne['login']."'");
+		foreach ($pdomdp as $ligne){
+			if($_POST['mdp'] == $ligne['mdp']){
+				
+				//si la connection est validée on enregistre l'identifiant en donnée de session
 				$_SESSION['login']=$_POST['login'];
+				//le fait que les connections est établie
+				$_SESSION['connecte']="oui";
+				//et le satut donc les droits de l'utilisateur connecté
 				$_SESSION['statut']="stagiaire";
-				header('Location: accueil.php');
-				exit();	
-				}
+				echo "Success";
+			}
+			 else{ // Sinon
+            echo "Failed";
 			}
 		}
 	}
-		header('Location:connection.php?message=erreur');
-		exit();
-	echo"</p>";
-	
-}	
-catch (Exepction $e){
-	echo "<p>erreur : ".$e ->getMessage();
-	die();
+	 else{ // Sinon
+            echo "Failed";
+        }
 }
+}
+//header('Location:connexion.php?message=erreur');
+exit();
 ?>
 
 
