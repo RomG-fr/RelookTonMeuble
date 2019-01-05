@@ -1,0 +1,27 @@
+CREATE TABLE `images` (
+    `img_id` INT NOT NULL AUTO_INCREMENT ,
+    `nom` VARCHAR( 50 ) NOT NULL ,
+	`description` VARCHAR( 100 ) NOT NULL ,
+	`img` BLOB NOT NULL ,
+	`extension` VARCHAR( 25 ) NOT NULL ,
+    `taille` VARCHAR( 25 ) NOT NULL ,
+	`design` VARCHAR( 25 ) NOT NULL ,
+	`type` VARCHAR( 25 ) NOT NULL ,
+    PRIMARY KEY ( `img_id` )
+)
+
+CREATE TABLE `dossier` (
+    `id` INT NOT NULL AUTO_INCREMENT ,
+    `nom` VARCHAR( 50 ) NOT NULL ,
+	`prenom` VARCHAR( 50 ) NOT NULL ,
+	`path_lettre_motivation` VARCHAR( 100 ) NOT NULL ,
+	`path_cv` VARCHAR( 100 ) NOT NULL ,
+    PRIMARY KEY ( `img_id` )
+)
+
+CREATE TABLE `utilisateur` (
+    `login` VARCHAR( 50 ) NOT NULL ,
+	`mdp` VARCHAR( 50 ) NOT NULL ,
+	`statut` VARCHAR( 50 ) NOT NULL ,
+    PRIMARY KEY ( `img_id` )
+)

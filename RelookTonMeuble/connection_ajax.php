@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head> <meta charset="utf-8" />
-    <title>Un formulaire de connexion en AJAX</title></head>
+    <title>Un formulaire de connexion en AJAX</title>
+	<link rel="icon" type="image/png" href="image/poisson_favicon.png" />
+	<script>
+		function verif_vide(){
+			if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
+			alert("Au moins un champs est vide");
+			return false;
+		}
+		else {
+			return true;
+			}
+		}
+	</script>
+</head>
  
 <body>
     <div id="resultat">
-        <!-- Nous allons afficher un retour en jQuery au visiteur -->
+        <!--affiche un retour en jQuery au visiteur -->
     </div>
          
         <h1>Un formulaire de connexion en AJAX</h1>
  
-    <form>
+    <form onsubmit='return verif_vide()'>
         <p>
-        Nom d'utilisateur : <input type="text" id="login" />
-        Mot de passe : <input type="password" id="mdp" />
+        Nom d'utilisateur : <input type="text" placeholder="exemple@mail.com" id="login" />
+        Mot de passe : <input type="password" placeholder="********" id="mdp" />
         <input type="submit" id="submit" value="Se connecter !" />
         </p>
     </form>

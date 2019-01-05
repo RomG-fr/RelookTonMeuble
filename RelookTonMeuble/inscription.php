@@ -14,6 +14,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 	<head>
 		<title></title>
 		<meta charset="utf-8"/>
+		<link rel="icon" type="image/png" href="image/poisson_favicon.png" />
 		<script>
 			
 			//Fonction vérifiant la structure de l'adresse mail
@@ -22,10 +23,10 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 				// La 1ère étape consiste à définir l'expression régulière d'une adresse email
 				var regEmail = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
 				var res =regEmail.test(mail);
-				if(res==false){
-					alert("mauvais mail");
+				if(res==false ||document.getElementById('login').value.length >50){
+					alert("identifiant invalide trop long longeur max 50 caractère ou mauvais structure");
 				}
-				return res;
+				return res||document.getElementById('login').value.length >50;
 			}
 		
 			//Génère une chaine de caractèreS aléatoire
@@ -40,16 +41,25 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 				return Chaine;
 			}
 			
+			function verif_mdp(){
+				if(document.getElementById('mdp').value.length < 8||document.getElementById('mdp').value.length >50){
+					alert("mot de passe invalide longueur entre 8 et 50 caractère");
+					return false;
+				}
+				else {
+					return true;
+				}
+			}
+			function verif(formulaire){
+				var valide=false;
+				valide= verif_mail(formulaire)&&verif_mdp();
+				if(valide){
+					alert("Ajout réussi");
+				}
+			}
 			//Au chargement de la page un mot de passe aléatoire de 8 caractère à placé dans la case mot de passe
 			window.onload = function mdpRandom(){
 				document.getElementById('mdp').value=ChaineAleatoire(8);
-			}
-			
-			//Vide l'element identifiant lors du clique de l'utilisateur
-			function foc(element){
-				if(element.value == 'exemple@mail.com') {
-					element.value = ''; 
-				}
 			}
 		</script>
 	</head>
@@ -63,7 +73,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 		?>
 		
 		<h1>Formulaire d'ajout des stagiaires : </h1>
-		<form method="Post" action="sign_in.php" onsubmit="return verif_mail(this);">
+		<form method="Post" action="sign_in.php" onsubmit="return verif(this);">
 			<label for='login'>Identifiant : </label>
 			<input type="text" class="login" name="login" placeholder="exemple@mail.com" id="login" onfocus="foc(this)" />
 			

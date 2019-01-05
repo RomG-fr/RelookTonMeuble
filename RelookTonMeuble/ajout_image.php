@@ -4,7 +4,7 @@
  
 	 //Indique si le fichier a été téléchargé
 	 if(!is_uploaded_file($_FILES['image']['tmp_name']))
-		echo 'Un problème est survenu durant l opération. Veuillez réessayer !';
+		 echo '<script> alert("Un problème est survenu durant l opération. Veuillez réessayer !");</script>';
 	 else {
 		//liste des extensions possibles    
 		$extensions = array('/png', '/gif', '/jpg', '/jpeg');
@@ -14,28 +14,28 @@
 		
 		//vérifie si l'extension est dans notre tableau            
 		if(!in_array($extension, $extensions))
-			echo 'Vous devez uploader un fichier de type png, gif, jpg, jpeg.';
+			echo '<script> alert("Vous devez uploader un fichier de type png, gif, jpg, jpeg.");</script>';
 		else {         
 			//on définit la taille maximale
 			define('MAXSIZE', 300000);        
 			if($_FILES['image']['size'] > MAXSIZE)
-			   echo 'Votre image est supérieure à la taille maximale de '.MAXSIZE.' octets';
+				echo '<script> alert("Votre image est supérieure à la taille maximale de '.MAXSIZE.' octets");</script>';
 			else {
 				//connexion à la base de données
-				<?php include 'connection_bd.php'; ?>
+				 include 'connection_bd.php';
  
 				//Lecture du fichier
 				$image = file_get_contents($_FILES['image']['tmp_name']);
 				
 				//prepare la requète
-				$req = $bdd->prepare("INSERT INTO images(nom, description, img, extension, taille,design,type) VALUES(:nom, :description, :image, :type, :taille, :design, :type)");
+				$req = $bdd->prepare("INSERT INTO images(nom, description, img, extension, taille,design,type) VALUES(:nom, :description, :image, :ext, :taille, :design, :type)");
 				
 				//execute la requète avec les valeurs
 				$req->execute(array(
 					'nom' => $_POST['nom'],
 					'description' => $_POST['description'],
 					'image' => $image,
-					'type' => $_FILES['image']['type'],
+					'ext' => $_FILES['image']['type'],
 					'taille' => $_FILES['image']['size'],
 					'design' => $_POST['design'],
 					'type' => $_POST['type']
