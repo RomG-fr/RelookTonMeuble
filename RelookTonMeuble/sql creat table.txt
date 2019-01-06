@@ -16,12 +16,12 @@ CREATE TABLE `dossier` (
 	`prenom` VARCHAR( 50 ) NOT NULL ,
 	`path_lettre_motivation` VARCHAR( 100 ) NOT NULL ,
 	`path_cv` VARCHAR( 100 ) NOT NULL ,
-    PRIMARY KEY ( `img_id` )
+    PRIMARY KEY ( `id` )
 )
 
 CREATE TABLE `utilisateur` (
     `login` VARCHAR( 50 ) NOT NULL ,
 	`mdp` VARCHAR( 50 ) NOT NULL ,
 	`statut` VARCHAR( 50 ) NOT NULL ,
-    PRIMARY KEY ( `img_id` )
+    PRIMARY KEY ( `login` )
 )
