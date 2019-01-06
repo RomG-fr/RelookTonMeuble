@@ -37,35 +37,6 @@ session_start();?>
       <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-
-       
-       
-       
-       <!--
-	   <style type="text/css">
-		body {
-			width: 95%;
-		}
- 
-		div {
-			width: 22%;
-			float: left;
-			text-align: center;
-			border: 1px solid black;
-			margin: 5px;
-			padding:  5px;
-		}
- 
-		p {
-			text-align: left;
-		}
- 
-		a {
-			color: #000000;
-			text-decoration: none;
-		}
-	   </style>
-    -->
    </head>
    <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -82,8 +53,8 @@ session_start();?>
                     <small>Sous-titre</small>
                   </h1>
                   <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-home"></i> Accueil</a></li>
-                    <li class="active">Galerie</li>
+                    <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a></li>
+                    <li class="active"><a href="#">Galerie</a></li>
                   </ol>
                 </section>
 
@@ -97,20 +68,20 @@ session_start();?>
                             <div class="col-md-3">
                                 <label for="desing">Design : </label>
                                 <select name="design" id="design" size="1">
-                                    <option>tous
-                                    <option>modern
-                                    <option>ancien
-                                    <option>brute
+                                    <option>tous</option>
+                                    <option>modern</option>
+                                    <option>ancien</option>
+                                    <option>brute</option>
                                 </select>
                             </div>
 
                             <div class="col-md-3">
                                 <label for="type">type : </label>
                                 <select name="type" id="type" size="1">
-                                    <option>tous
-                                    <option>commode
-                                    <option>armoire
-                                    <option>table
+                                    <option>tous</option>
+                                    <option>commode</option>
+                                    <option>armoire</option>
+                                    <option>table</option>
                                 </select>
                             </div>
                             
@@ -219,7 +190,7 @@ session_start();?>
                 <div class="pull-right hidden-xs">
                   <b>Version</b> 0.2.1
                 </div>
-                <strong>Copyright &copy; 2018 <a href="#">Relook' ton meuble</a>.</strong> Tous droits réservés.
+                <strong>Copyright &copy; 2019 <a href="#">Relook' ton meuble</a>.</strong> Tous droits réservés.
               </footer>
 
           

@@ -113,7 +113,7 @@
                 <div class="pull-right hidden-xs">
                   <b>Version</b> 0.2.1
                 </div>
-                <strong>Copyright &copy; 2018 <a href="#">Relook' ton meuble</a>.</strong> Tous droits réservés.
+                <strong>Copyright &copy; 2019 <a href="#">Relook' ton meuble</a>.</strong> Tous droits réservés.
               </footer>
 
           
