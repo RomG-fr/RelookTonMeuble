@@ -30,7 +30,14 @@
         <input type="submit" id="submit" value="Se connecter !" />
         </p>
     </form>
- 
+	<?php 
+	$linko="'logout.php'";
+	echo'<input type="button" value="deconnection" OnClick="window.location.href='.$linko.'"/>';
+		if(isset($_SESSION['login'])){
+			$link="'stagiaire.php'";
+			echo'<input type="button" value="acceder au réalisation" OnClick="window.location.href='.$link.'"/>';
+		}
+	?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </body>
 </html>
@@ -53,6 +60,7 @@
 					if(data == 'Success'){
 						 // Le membre est connecté. Ajoutons lui un message dans la page HTML.
 						 $("#resultat").html("<p>Vous avez été connecté avec succès !</p>");
+						 window.location.href='stagiaire.php';
 					}
 					else{
 						 // Le membre n'a pas été connecté. (data vaut ici "failed")

@@ -1,5 +1,5 @@
 <?php
-	//session_start();
+	session_start();
 	if(isset($_POST['validation'])) {
  
 	 //Indique si le fichier a été téléchargé
@@ -28,7 +28,7 @@
 				$image = file_get_contents($_FILES['image']['tmp_name']);
 				
 				//prepare la requète
-				$req = $bdd->prepare("INSERT INTO images(nom, description, img, extension, taille,design,type) VALUES(:nom, :description, :image, :ext, :taille, :design, :type)");
+				$req = $bdd->prepare("INSERT INTO images(nom, description, img, extension, taille,design,type,auteur) VALUES(:nom, :description, :image, :ext, :taille, :design, :type, :auteur)");
 				
 				//execute la requète avec les valeurs
 				$req->execute(array(
@@ -38,7 +38,8 @@
 					'ext' => $_FILES['image']['type'],
 					'taille' => $_FILES['image']['size'],
 					'design' => $_POST['design'],
-					'type' => $_POST['type']
+					'type' => $_POST['type'],
+					'auteur'=> $_POST['auteur']
 					));
  
 				echo 'L\'insertion s est bien déroulée !';
