@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	if(isset($_POST['validation'])) {
  
 	 //Indique si le fichier a été téléchargé
