@@ -93,44 +93,72 @@
 
                 <!-- Main content -->
                 <section class="content">
-                    
-                    <div class="col-md-7">
-                        <h4>Pour un relooking de meuble, envoyez nous un message avec une photo de celui-ci.</h4>
-                        <form action='send_mail.php' method='POST' onsubmit='return verif(this)'>
-                                <label for="nom">Nom: </label>
-                                <input type='text' placeholder='votre nom'name='nom' id='nom'/><br/><br/>
-                                <label for="prenom">Prenom: </label>
-                                <input type='text' placeholder='votre prenom'name='prenom' id='prenom'/><br/><br/>
-                                <label for="from">Votre mail: </label>
-                                <input type='text' placeholder='votre mail' name='from' id='from'/><br/><br/>
-                                <label for="subject">Sujet : </label>
-                                <select name="subject" size="1">
+                    <br/>
+                    <p>Pour un relooking de meuble, envoyez nous un message avec une photo de celui-ci.<p><br/><br/>
+                    <form action='send_mail.php' method='POST' onsubmit='return verif(this)' style="margin-left: 15px;">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="row">
+                            <div class="col-md-4">
+                              <label for="nom">Nom :</label>
+                            </div>
+                            <div class="col-md-3">
+                              <input type='text' placeholder='Votre nom'name='nom' id='nom'/><br/><br/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <label for="prenom">Prenom :</label>
+                            </div>
+                            <div class="col-md-3">
+                              <input type='text' placeholder='Votre prenom'name='prenom' id='prenom'/><br/><br/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <label for="from">Votre mail :</label>
+                            </div>
+                            <div class="col-md-3">
+                               <input type='text' placeholder='Votre mail' name='from' id='from'/><br/><br/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <label for="subject">Sujet : </label>
+                            </div>
+                            <div class="col-md-3">
+                              <select name="subject" size="1">
                                     <option>Demande d'information
                                     <option>Annulation de stage
-                                </select><br/><br/>
-                                <label for="message">Message : </label>
-                                <textarea name="message" placeholder='votre message'id="message" rows="10" cols="50"></textarea><br/><br/>
-                                <input type='submit' value='envoyer'/>
-                        </form>
-                    </div>
-                    
-                    <div class="col-md-5">
+                              </select><br/><br/>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <label for="message">Message : </label>
+                            </div>
+                            <div class="col-md-3">
+                              <textarea name="message" placeholder='Votre message'id="message" rows="10" cols="50"></textarea><br/><br/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-4">
+                          <div class="row">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2663.7452668047736!2d-1.6405629847062004!3d48.11514947922164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480edee4490f4333%3A0x3c4238e97734ee99!2sISTIC!5e0!3m2!1sfr!2sfr!4v1543834583937" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    </div>
-                    
-                    
-                    
-                    
-                    <div class="col-md-5" style="margin-top: 50px;">  
-                            <p>Magasin : Relook' ton meuble</p>
-                            <p>adresse : 263 Avenue Général Leclerc, 35000 Rennes</p>
-                            <p>ville : Rennes</p>
-                            <p>horaire : 24h/24  7j/7</p>
-                        <!--    <p>adresse mail :</p> -->
-                    </div>
-                    
-                    
-                    
+                          </div>
+                          <div class="row">
+                            <br/>
+                            <p><b>Magasin :</b> Relook' ton meuble</p>
+                            <p><b>Adresse :</b> 263 Avenue Général Leclerc, 35000 Rennes</p>
+                            <p><b>Ville :</b> Rennes</p>
+                            <p><b>Horaire :</b> 24h/24  7j/7</p>
+                          </div>
+                        </div> 
+                        
+                      </div>
+                      <input type='submit' value='envoyer'/>
                 </section>
                 <!-- /.content -->
               </div>
