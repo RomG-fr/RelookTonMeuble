@@ -63,17 +63,16 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-            Connexion
-      </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-home"></i> Accueil</a></li>
+        <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a></li>
         <li class="active"><a href="#">Connexion</a></li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
+    	<br />
+    	<br />
         <br />
         <br />
         <div id="resultat">
@@ -103,7 +102,7 @@
                          
                         </div>
                   <div class="cont_btn">
-                       <button class="btn_sign">S'inscrire</button>
+                       <button class="btn_sign">Se Connecter</button>
 
                     </div>
 
