@@ -77,17 +77,17 @@
       	<p>Votre avis nous intéresse.</p>
       	<br />
 		<form action='send.php' method='POST'>
-			<label for="nom">nom: </label>
+			<label for="nom">Nom: </label>
 			<input type='text' placeholder='Votre nom'name='nom' id='nom'/>
 			<br />
 			<br />
-			<label for="prenom">prenom: </label>
+			<label for="prenom">Prenom: </label>
 			<input type='text' placeholder='Votre prenom'name='prenom' id='prenom'/><br />
 			<br />
-			<label for="message">message : </label>
+			<label for="message">Votre message : </label>
 			<textarea name="message" placeholder='Votre message'id="message" rows="10" cols="50"></textarea><br />
 			<br />
-			<label for="note">note : </label>
+			<label for="note">Note : </label>
 			<input type='radio' name='note' value='1' checked='check'>1
 			<input type='radio' name='note' value='2'>2
 			<input type='radio' name='note' value='3'>3
@@ -98,7 +98,7 @@
 			<!--<span id="date"></span>-->
 			<script type="text/javascript">window.onload = date('date');</script>
 			<br /><br />
-			<input type='submit' value='envoyer'/>
+			<input type='submit' value='Envoyer'/>
 		</form>
     </section>
     <!-- /.content -->

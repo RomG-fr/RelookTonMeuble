@@ -22,10 +22,7 @@
 					<td><p>Adresse Mail*</p></td>
 					<td><input type="text" name="adressemail" size="48"/></td>
 				</tr>
-				<tr>
-					<td><p>Date de votre stage*</p></td>
-					<td><input type="text" name="datefilter" value="" /></td>
-				</tr>
+				
 				<tr>
 					<td>CV*</td>
 					<td>
@@ -40,6 +37,10 @@
 						<input name="Lettre de motivation" type="file" />
 					</td>
 				</tr>
+				<tr>
+					<td><p>Date de votre stage*</p></td>
+					<td><input type="text" name="datefilter" value="" /></td>
+				</tr>
 			</table>
 			<input type="submit" name="envoyer" value="Envoyer"/>
 		</form>
@@ -49,7 +50,7 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 	<script type="text/javascript">
-		$(function() {
+		$(function daterangepicker() {
 
 		  $('input[name="datefilter"]').daterangepicker({
 		      autoUpdateInput: false,
