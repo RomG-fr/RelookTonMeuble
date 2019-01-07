@@ -38,6 +38,7 @@
 		       folder instead of downloading all of them to reduce the load. -->
 		  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 		  <link rel="stylesheet" href="css/perso_custom.css">
+          <link rel="stylesheet" href="css/style_livre_or.css">
 
 
 		  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -77,7 +78,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <label for="nom">Nom: </label>
                     </div>
                     
@@ -87,7 +88,7 @@
                 
                 </div>
                 <div class="row">
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <label for="prenom">Prenom: </label>
                     </div>
                     
@@ -97,7 +98,7 @@
                 
                 </div>
                 <div class="row">
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <label for="message">Votre message : </label>
                     </div>
                     
@@ -107,21 +108,58 @@
                 
                 </div>
                 <div class="row">
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <label for="note">Note : </label>
                     </div>
                     
                     <div class="col-md-8">
-                        <input type='radio' name='note' value='1' checked='check'>1
+  
+
+  
+                          <div class="rating row">
+
+                              <div class="rating-box">
+                                  <ul class="rating-preview">
+                                      <li>:'(</li>
+                                      <li>:(</li>
+                                      <li>:|</li>
+                                      <li>:)</li>
+                                      <li>:D</li>
+                                  </ul>
+                              </div>
+
+                            <ul class="rating-n">
+                              <li><a href="#1"><span><input type='radio' name='note' value='1'>1</span></a></li>
+                              <li><a href="#2"><span><input type='radio' name='note' value='2'>2</span></a></li>
+                              <li><a href="#3"><span><input type='radio' name='note' value='3'>3</span></a></li>
+                              <li><a href="#4"><span><input type='radio' name='note' value='4'>4</span></a></li>
+                              <li><a href="#5"><span><input type='radio' name='note' value='5'>5</span></a></li>
+                            </ul>
+
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                    <!--
+                        <input type='radio' name='note' value='1'>1
                         <input type='radio' name='note' value='2'>2
-                        <input type='radio' name='note' value='3'>3
+                        <input type='radio' name='note' value='3' checked='check'>3
                         <input type='radio' name='note' value='4'>4
                         <input type='radio' name='note' value='5'>5
                         <br/>
                         <br/>
+                    -->
                     </div>
                 
                 </div>
+                
+                
+                
+                
+                
                 <div class="row">
                     <input type='hidden' id='date' name='date'>
                     <!--<span id="date"></span>-->
@@ -185,9 +223,51 @@
 <script src="dist/js/pages/dashboard2.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+            
+<script type="text/javascript">
+    $(".rating-box").show().css('left',$(".rating-n li").eq(0).offset().left);
+
+    $(".rating-n").mouseenter(function() {
+      $(".rating-box").show();
+    }).mouseleave(function() {
+      //$(".rating-box").hide();
+    });
+
+
+    $(".rating-n li").mouseenter(function() {
+    var offset = $(this).offset();
+      $(".rating-box").stop().animate({'left':offset.left});
+
+      var index = $(this).index();
+      $(".rating-preview").stop().animate({'margin-top':(index*50)*-1});
+    });
+
+    // Animation preview
+    $('.rating-preview').delay(500).animate({
+      'margin-top': -50
+      }, 500, function() {
+    $('.rating-preview').delay(500).animate({
+      'margin-top': -100
+      },500);
+
+      });
+
+    $('.rating-box').delay(500).animate({
+      'left':"+=45"
+      }, 500, function() {
+
+    $('.rating-box').delay(500).animate({
+      'left':"+=45"
+      }, 500)
+
+    });
+            
+            
+            
+</script>
 		<?php
 			/*
-				Page affichant les demandes de stages ressus
+				Page affichant les demandes de stages ressus    
 				il est possible de visualiser ou telecharger les documents joins pas le candidat
 				les documents ne peuvent etre visualiser que sous les formats traité par le navigateur
 				les documents au mauvais format sont téléchargés
