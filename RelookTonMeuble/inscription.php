@@ -61,18 +61,17 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 			function mdpRandom(){
 				document.getElementById('mdp').value=ChaineAleatoire(8);
 			}
-		</script>
-	<script>
-		function verif_vide(){
-			if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
-			alert("Au moins un champs est vide");
-			return false;
-		}
-		else {
-			return true;
+		
+			function verif_vide(){
+				if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
+					alert("Au moins un champs est vide");
+					return false;
+				}
+				else {
+					return true;
+					}
 			}
-		}
-	</script>
+		</script>
 		  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		  <!-- Tell the browser to be responsive to screen width -->
 		  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
