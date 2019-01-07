@@ -66,7 +66,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Accueil</a></li>
-        <li class="active"><a href="#">Galerie</a></li>
+        <li class="active"><a href="#">Livre d'Or</a></li>
       </ol>
     </section>
 

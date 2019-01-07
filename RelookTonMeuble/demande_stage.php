@@ -25,9 +25,11 @@
       <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
       <!-- AdminLTE Skins. Choose a skin from the css/skins
            folder instead of downloading all of them to reduce the load. -->
-      <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">  
+      <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css"> 
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> <!-- CSS daterangepicker--> 
       <link rel="stylesheet" href="css/perso_custom.css">   <!-- CSS du MENU -->
       <link rel="stylesheet" href="css/style_galerie.css">   <!-- CSS pour la page GALERIE -->
+
 
 
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -62,10 +64,10 @@
                 </section>
 
                 <!-- Main content -->
-                <section class="content">
+                <section class="content" >
 						<!--formulaire pour une demande de stage-->
 						<div>
-							<form enctype="multipart/form-data" action="#" method="post">							
+							<form enctype="multipart/formdata" action="#" method="post">							
 								<br />
 								<br />
 								<label for="prenom">Prenom* : </label>
@@ -94,32 +96,9 @@
 								<p>(* obligatoire)</p>
 								<input type="submit" name="validation" id="validation" value="Envoyer demande" />
 							</form>
-						</div>
-						<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-						<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-						<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-						<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-						<script type="text/javascript">
-							$(function daterangepicker() {
-
-							  $('input[name="datefilter"]').daterangepicker({
-							      autoUpdateInput: false,
-							      locale: {
-							          cancelLabel: 'Clear'
-							      }
-							  });
-
-							  $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
-							      $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
-							  });
-
-							  $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
-							      $(this).val('');
-							  });
-
-							});
-						</script>
+						</div>	
                 <!-- /.content -->
+            	</section>
               </div>
               <!-- /.content-wrapper -->
 
@@ -157,5 +136,28 @@
         <script src="dist/js/pages/dashboard2.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="dist/js/demo.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+		<script type="text/javascript">
+							$(function() {
+
+							  $('input[name="datefilter"]').daterangepicker({
+							      autoUpdateInput: false,
+							      locale: {
+							          cancelLabel: 'Clear'
+							      }
+							  });
+
+							  $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
+							      $(this).val(picker.startDate.format('DD/MM/YYYY') + ' - ' + picker.endDate.format('DD/MM/YYYY'));
+							  });
+
+							  $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
+							      $(this).val('');
+							  });
+
+							});
+		</script>
 	</body>
 </html>

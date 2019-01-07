@@ -68,12 +68,14 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Accueil</a></li>
+        <li class="active"><a href="#">Connexion</a></li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-        
+        <br />
+        <br />
         <div id="resultat">
         <!--affiche un retour en jQuery au visiteur -->
         </div>
