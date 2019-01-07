@@ -58,7 +58,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 				}
 			}
 			//Au chargement de la page un mot de passe aléatoire de 8 caractère à placé dans la case mot de passe
-			window.onload = function mdpRandom(){
+			function mdpRandom(){
 				document.getElementById('mdp').value=ChaineAleatoire(8);
 			}
 		</script>
@@ -151,10 +151,9 @@ la secretaire doit saisir le mail du stagiaire à ajouter
                             </ul>
                           </div>
 		                    <div class="cont_text_inputs">
-
 		                          <input type="text" class="input_form_sign d_block active_inp" placeholder="Email" name="emauil_us" id="login"/>
 
-		                          <input type="password" class="input_form_sign d_block  active_inp" placeholder="Mot de passe" name="pass_us" id="mdp" />                         
+		                          <input type="password" class="input_form_sign d_block  active_inp" placeholder="Mot de passe" name="pass_us" id="mdp" value="mdpRandom()"/>                         
 		                    </div>
 		                  	<div class="cont_btn">
 		                       <button class="btn_sign">Inscrire</button>
