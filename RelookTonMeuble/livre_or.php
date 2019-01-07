@@ -74,6 +74,9 @@
     <section class="content">
         
         <form action='send.php' method='POST' style="margin-left: 15px;">
+        <br /><br/>
+        <p>Votre avis nous intéresse.<p>
+        <br /><br/>
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
