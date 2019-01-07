@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head> <meta charset="utf-8" />
-    <title>Connection</title>
+    <title>Connexion</title>
 	<link rel="icon" type="image/png" href="image/poisson_favicon.png" />
 	<script>
 		function verif_vide(){
@@ -19,6 +19,7 @@
 		  <title>Connexion</title>
 		  <!-- Tell the browser to be responsive to screen width -->
 		  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		  <link rel="stylesheet" type="text/css" href="css/style.css">
 		  <!-- Bootstrap 3.3.7 -->
 		  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 		  <!-- Font Awesome -->
@@ -47,7 +48,7 @@
 		        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 			  <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-			<link rel="stylesheet" href="css/perso_custom.css"><link rel="stylesheet" type="text/css" href="css/style.css">
+			<link rel="stylesheet" href="css/perso_custom.css">
 </head>
  
 <body>
