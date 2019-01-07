@@ -65,6 +65,7 @@
 
                 <!-- Main content -->
                 <section class="content" >
+                	<?php include "gestion_demande.php"; ?>
 						<!--formulaire pour une demande de stage-->
 						<div>
 							<form enctype="multipart/formdata" action="#" method="post">							
