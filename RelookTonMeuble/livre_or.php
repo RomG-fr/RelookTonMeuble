@@ -134,17 +134,7 @@
                 </div>
             </div>
         </div>
-    </form>
-        
-        
-
-			
-			
-			
-		
-            
-            
-            
+    </form>  
             
     </section>
     <!-- /.content -->
