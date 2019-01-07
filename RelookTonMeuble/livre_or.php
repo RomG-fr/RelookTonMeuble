@@ -72,34 +72,77 @@
 
     <!-- Main content -->
     <section class="content">
-    	<br />
-    	<br />
-      	<p>Votre avis nous intéresse.</p>
-      	<br />
-		<form action='send.php' method='POST'>
-			<label for="nom">Nom: </label>
-			<input type='text' placeholder='Votre nom'name='nom' id='nom'/>
-			<br />
-			<br />
-			<label for="prenom">Prenom: </label>
-			<input type='text' placeholder='Votre prenom'name='prenom' id='prenom'/><br />
-			<br />
-			<label for="message">Votre message : </label>
-			<textarea name="message" placeholder='Votre message'id="message" rows="10" cols="50"></textarea><br />
-			<br />
-			<label for="note">Note : </label>
-			<input type='radio' name='note' value='1' checked='check'>1
-			<input type='radio' name='note' value='2'>2
-			<input type='radio' name='note' value='3'>3
-			<input type='radio' name='note' value='4'>4
-			<input type='radio' name='note' value='5'>5
-			<br />
-			<input type='hidden' id='date' name='date'>
-			<!--<span id="date"></span>-->
-			<script type="text/javascript">window.onload = date('date');</script>
-			<br /><br />
-			<input type='submit' value='Envoyer'/>
-		</form>
+        
+        <form action='send.php' method='POST' style="margin-left: 15px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-1">
+                        <label for="nom">Nom: </label>
+                    </div>
+                    
+                    <div class="col-md-8">
+                        <input type='text' placeholder='Votre nom'name='nom' id='nom'/> <br/><br/>
+                    </div>
+                
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <label for="prenom">Prenom: </label>
+                    </div>
+                    
+                    <div class="col-md-8">
+                        <input type='text' placeholder='Votre prenom'name='prenom' id='prenom'/> <br/><br/>
+                    </div>
+                
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <label for="message">Votre message : </label>
+                    </div>
+                    
+                    <div class="col-md-8">
+                        <textarea name="message" placeholder='Votre message'id="message" rows="10" cols="50"></textarea><br/><br/>
+                    </div>
+                
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <label for="note">Note : </label>
+                    </div>
+                    
+                    <div class="col-md-8">
+                        <input type='radio' name='note' value='1' checked='check'>1
+                        <input type='radio' name='note' value='2'>2
+                        <input type='radio' name='note' value='3'>3
+                        <input type='radio' name='note' value='4'>4
+                        <input type='radio' name='note' value='5'>5
+                        <br/>
+                        <br/>
+                    </div>
+                
+                </div>
+                <div class="row">
+                    <input type='hidden' id='date' name='date'>
+                    <!--<span id="date"></span>-->
+                    <script type="text/javascript">window.onload = date('date');</script>
+                    <br /><br />
+                    <input type='submit' value='Envoyer'/>
+                </div>
+            </div>
+        </div>
+    </form>
+        
+        
+
+			
+			
+			
+		
+            
+            
+            
+            
     </section>
     <!-- /.content -->
   </div>
