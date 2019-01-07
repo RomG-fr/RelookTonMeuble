@@ -59,7 +59,7 @@
         <p>Armoire, commode, table, chaise... Peu de meubles résistent au pouvoir rajeunissant d'une peinture fraîche et éclatante. Et c'est tant mieux ! La peinture, en pot ou en bombe, reste la solution la plus accessible pour le petit relooking pas cher d'un meuble. Une cuisine en pin se modernisera sous l'effet d'une couleur actuelle comme le noir, le gris ou des teintes plus douces et poudrées. Vous pouvez par ailleurs préférer une patine ou une céruse à la peinture pour éclaircir et offrir un style différent à un vieux meuble en bois. Enfin, il n'est pas toujours nécessaire de repeindre le meuble dans sa totalité pour produire un effet waouh. Ne colorer que les piètements, qu'une moitié de porte ou de dossier suffit souvent à lui donner du cachet. Voici tout plein d'idées pour vous inspirer et relooker un meuble rustique ou chiné avec de la peinture.</p>
       <br  />
       <br  />
-      <video width="320" height="240" controls>
+      <video width="320" height="240"  controls>
         <source src='video/relooking_meuble.mp4' type="video/mp4">
         Votre navigateur ne supporte pas la balise vidéo.
       </video>
