@@ -5,7 +5,7 @@ session_start();
 
 /*
 Lorsque la secretaire veut ajouter un stagiaire elle se rend sur cette page pour l'ajouter
-lors du chargement de la page un mot de passe est généré aléatoirement 
+lors du chargement de la page un mot de passe est généré aléatoirement
 la secretaire doit saisir le mail du stagiaire à ajouter
 */
 
@@ -47,9 +47,9 @@ la secretaire doit saisir le mail du stagiaire à ajouter
           <link rel="stylesheet" type="text/css" href="css/style_connexion.css">
           <link rel="stylesheet" href="css/perso_custom.css">
 	</head>
-	
+
 	<body>
-		<?php 
+		<?php
 			//si l'identifiant existe déjà on affiche le message suivant
 			if(isset($_GET['message'])&&$_GET['message']="erreur"){
 				echo("<br />	/!\\ identifiant deja existant /!\\	<br />");
@@ -94,8 +94,9 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 		                    <div class="cont_text_inputs">
 		                          <input type="text" class="input_form_sign d_block active_inp" placeholder="Email" name="emauil_us" id="login"/>
 
-		                          <input type="password" class="input_form_sign d_block  active_inp" placeholder="Mot de passe" name="pass_us" id="mdp" value=""/>
-                                  <button class="unmask" type="button" title="Masquer/Afficher le mot de passe">Afficher</button>
+		                          <input type="password" class="input_form_sign d_block  active_inp" placeholder="Mot de passe" name="mdp" id="mdp" value=""  onBlur="this.type='password'"
+		                           onFocus="this.type='text'" />
+		                           <p><center>Cliquez sur le mot de passe pour le voir</center></p>
 		                    </div>
 		                  	<div class="cont_btn">
 		                       <button class="btn_sign">Inscrire</button>
@@ -151,6 +152,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 
+
 	<?php
 	$linko="'logout.php'";
 	echo'<input type="button" value="deconnection" OnClick="window.location.href='.$linko.'"/>';
@@ -163,9 +165,9 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 
 
 <script>
-    
-    	
-			
+
+
+
 			//Fonction vérifiant la structure de l'adresse mail
 			function verif_mail(formulaire){
 				var mail=formulaire.login.value;
@@ -177,7 +179,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 				}
 				return res||document.getElementById('login').value.length >50;
 			}
-		
+
 			//Génère une chaine de caractèreS aléatoire
 			function ChaineAleatoire(nbcar){
 				var ListeCar = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
@@ -189,7 +191,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 				}
 				return Chaine;
 			}
-			
+
 			function verif_mdp(){
 				if(document.getElementById('mdp').value.length < 8||document.getElementById('mdp').value.length >50){
 					alert("mot de passe invalide longueur entre 8 et 50 caractère");
@@ -210,7 +212,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 			function mdpRandom(){
 				document.getElementById('mdp').value=ChaineAleatoire(8);
 			}
-		
+
 			function verif_vide(){
 				if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
 					alert("Au moins un champs est vide");
@@ -220,11 +222,11 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 					return true;
 					}
 			}
-	
-    
-    
-    
-    
+
+
+
+
+
 	$(document).ready(function(){
 
 		$("#submit").click(function(e){
@@ -255,5 +257,63 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 		});
 	});
 </script>
+<script>
+
+			//Fonction vérifiant la structure de l'adresse mail
+			function verif_mail(formulaire){
+				var mail=formulaire.login.value;
+				// La 1ère étape consiste à définir l'expression régulière d'une adresse email
+				var regEmail = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
+				var res =regEmail.test(mail);
+				if(res==false ||document.getElementById('login').value.length >50){
+					alert("identifiant invalide trop long longeur max 50 caractère ou mauvais structure");
+				}
+				return res||document.getElementById('login').value.length >50;
+			}
+
+			//Génère une chaine de caractèreS aléatoire
+			function ChaineAleatoire(nbcar){
+				var ListeCar = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+				"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+				"0","1","2","3","4","5","6","7","8","9");
+				var Chaine ='';
+				for(i = 0; i < nbcar; i++){
+					Chaine = Chaine + ListeCar[Math.floor(Math.random()*ListeCar.length)];
+				}
+				return Chaine;
+			}
+
+			function verif_mdp(){
+				if(document.getElementById('mdp').value.length < 8||document.getElementById('mdp').value.length >50){
+					alert("mot de passe invalide longueur entre 8 et 50 caractère");
+					return false;
+				}
+				else {
+					return true;
+				}
+			}
+			function verif(formulaire){
+				var valide=false;
+				valide= verif_mail(formulaire)&&verif_mdp();
+				if(valide){
+					alert("Ajout réussi");
+				}
+			}
+			//Au chargement de la page un mot de passe aléatoire de 8 caractère à placé dans la case mot de passe
+
+			window.onload = function mdpRandom(){
+				document.getElementById('mdp').value=ChaineAleatoire(8);
+			}
+
+			function verif_vide(){
+				if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
+					alert("Au moins un champs est vide");
+					return false;
+				}
+				else {
+					return true;
+					}
+			}
+		</script>
 </body>
 </html>
