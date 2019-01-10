@@ -58,10 +58,11 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 				}
 			}
 			//Au chargement de la page un mot de passe aléatoire de 8 caractère à placé dans la case mot de passe
+
 			function mdpRandom(){
 				document.getElementById('mdp').value=ChaineAleatoire(8);
-			}
-		
+			}       
+									
 			function verif_vide(){
 				if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
 					alert("Au moins un champs est vide");
@@ -152,7 +153,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 		                    <div class="cont_text_inputs">
 		                          <input type="text" class="input_form_sign d_block active_inp" placeholder="Email" name="emauil_us" id="login"/>
 
-		                          <input type="password" class="input_form_sign d_block  active_inp" placeholder="Mot de passe" name="pass_us" id="mdp" value="mdpRandom()"/>                         
+		                          <input type="password" class="input_form_sign d_block  active_inp" placeholder="Mot de passe" name="pass_us" id="mdp" value='' onclick="this.type='text'" />                 
 		                    </div>
 		                  	<div class="cont_btn">
 		                       <button class="btn_sign">Inscrire</button>
@@ -207,6 +208,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 <script src="dist/js/pages/dashboard2.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+
 
 	<?php
 	$linko="'logout.php'";
