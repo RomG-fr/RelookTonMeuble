@@ -2,10 +2,17 @@
 session_start();
 ?>
 <html>
-	<head>
-	</head>
-	<body>
-		<input type="button" value="retour" OnClick="window.location.href='galerie.php'"/>
+<head>
+	<title>Contact</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+	 <?php include "menu.html";?>
+	 <section>
+	 	<input type="button" value="retour" OnClick="window.location.href='galerie.php'"/>
 		<?php 
 			if(isset($_GET['message'])){
 				//connexion à la base de données
@@ -26,6 +33,9 @@ session_start();
 			else{
 				echo"erreur";
 			}
-		?>
-	</body>
+		?>		
+	 </section>	
+
+	
+</body>
 </html>
