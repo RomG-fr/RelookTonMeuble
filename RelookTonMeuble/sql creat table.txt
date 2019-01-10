@@ -7,6 +7,7 @@ CREATE TABLE `images` (
     `taille` VARCHAR( 25 ) NOT NULL ,
 	`design` VARCHAR( 25 ) NOT NULL ,
 	`type` VARCHAR( 25 ) NOT NULL ,
+	`auteur` VARCHAR( 50 ) NOT NULL ,
     PRIMARY KEY ( `id_img` )
 )
 
@@ -16,6 +17,7 @@ CREATE TABLE `dossier` (
 	`prenom` VARCHAR( 50 ) NOT NULL ,
 	`path_lettre_motivation` VARCHAR( 100 ) NOT NULL ,
 	`path_cv` VARCHAR( 100 ) NOT NULL ,
+	`date` VARCHAR( 25 ) NOT NULL ,
     PRIMARY KEY ( `id` )
 )
 

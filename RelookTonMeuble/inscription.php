@@ -5,7 +5,7 @@ session_start();
 
 /*
 Lorsque la secretaire veut ajouter un stagiaire elle se rend sur cette page pour l'ajouter
-lors du chargement de la page un mot de passe est généré aléatoirement
+lors du chargement de la page un mot de passe est généré aléatoirement 
 la secretaire doit saisir le mail du stagiaire à ajouter
 */
 
@@ -13,11 +13,69 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 <html>
 	<head>
 		<title>Inscrire un stagiaire</title>
+		<link rel="icon" type="image/png" href="img/logo.png" />
 		<meta charset="utf-8"/>
-		<link rel="icon" type="image/png" href="image/poisson_favicon.png" />
+		<script>
+			
+			//Fonction vérifiant la structure de l'adresse mail
+			function verif_mail(formulaire){
+				var mail=formulaire.login.value;
+				// La 1ère étape consiste à définir l'expression régulière d'une adresse email
+				var regEmail = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
+				var res =regEmail.test(mail);
+				if(res==false ||document.getElementById('login').value.length >50){
+					alert("identifiant invalide trop long longeur max 50 caractère ou mauvais structure");
+				}
+				return res||document.getElementById('login').value.length >50;
+			}
+		
+			//Génère une chaine de caractèreS aléatoire
+			function ChaineAleatoire(nbcar){
+				var ListeCar = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+				"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+				"0","1","2","3","4","5","6","7","8","9");
+				var Chaine ='';
+				for(i = 0; i < nbcar; i++){
+					Chaine = Chaine + ListeCar[Math.floor(Math.random()*ListeCar.length)];
+				}
+				return Chaine;
+			}
+			
+			function verif_mdp(){
+				if(document.getElementById('mdp').value.length < 8||document.getElementById('mdp').value.length >50){
+					alert("mot de passe invalide longueur entre 8 et 50 caractère");
+					return false;
+				}
+				else {
+					return true;
+				}
+			}
+			function verif(formulaire){
+				var valide=false;
+				valide= verif_mail(formulaire)&&verif_mdp();
+				if(valide){
+					alert("Ajout réussi");
+				}
+			}
+			//Au chargement de la page un mot de passe aléatoire de 8 caractère à placé dans la case mot de passe
+			function mdpRandom(){
+				document.getElementById('mdp').value=ChaineAleatoire(8);
+			}
+		
+			function verif_vide(){
+				if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
+					alert("Au moins un champs est vide");
+					return false;
+				}
+				else {
+					return true;
+					}
+			}
+		</script>
 		  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		  <!-- Tell the browser to be responsive to screen width -->
 		  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		  <link rel="stylesheet" type="text/css" href="css/style.css">
 		  <!-- Bootstrap 3.3.7 -->
 		  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 		  <!-- Font Awesome -->
@@ -31,7 +89,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 		  <!-- AdminLTE Skins. Choose a skin from the css/skins
 		       folder instead of downloading all of them to reduce the load. -->
 		  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-          <link rel="stylesheet" href="css/style_inscription.css">
+
 
 
 		  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -47,16 +105,16 @@ la secretaire doit saisir le mail du stagiaire à ajouter
           <link rel="stylesheet" type="text/css" href="css/style_connexion.css">
           <link rel="stylesheet" href="css/perso_custom.css">
 	</head>
-
+	
 	<body>
-		<?php
+		<?php 
 			//si l'identifiant existe déjà on affiche le message suivant
 			if(isset($_GET['message'])&&$_GET['message']="erreur"){
-				echo("<br />	/!\\ identifiant deja existant /!\\	<br />");
+				echo("<script>alert('identifiant deja existant');</script>");
 			}
 		?>
 	<div class="wrapper">
-    <?php include "menu.html"; ?>
+    <?php include "menu.php"; ?>
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -81,7 +139,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 	    <div class="cont_principal">
 		    <div class="cont_centrar">
                 <div class="cont_login">
-                      <form onsubmit='return verif_vide()'>
+                      <form action="sign_in.php" method="POST" onsubmit="return verif_vide()">
                           <div class="cont_tabs_login">
                             <ul class='ul_tabs'>
                               <li class="active">
@@ -94,9 +152,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 		                    <div class="cont_text_inputs">
 		                          <input type="text" class="input_form_sign d_block active_inp" placeholder="Email" name="emauil_us" id="login"/>
 
-		                          <input type="password" class="input_form_sign d_block  active_inp" placeholder="Mot de passe" name="mdp" id="mdp" value=""  onBlur="this.type='password'"
-		                           onFocus="this.type='text'" />
-		                           <p><center>Cliquez sur le mot de passe pour le voir</center></p>
+		                          <input type="password" class="input_form_sign d_block  active_inp" placeholder="Mot de passe" name="pass_us" id="mdp" onload='mdpRandom()'/>                         
 		                    </div>
 		                  	<div class="cont_btn">
 		                       <button class="btn_sign">Inscrire</button>
@@ -152,168 +208,5 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 
-
-	<?php
-	$linko="'logout.php'";
-	echo'<input type="button" value="deconnection" OnClick="window.location.href='.$linko.'"/>';
-		if(isset($_SESSION['login'])){
-			$link="'stagiaire.php'";
-			echo'<input type="button" value="acceder au réalisation" OnClick="window.location.href='.$link.'"/>';
-		}
-	?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
-
-<script>
-
-
-
-			//Fonction vérifiant la structure de l'adresse mail
-			function verif_mail(formulaire){
-				var mail=formulaire.login.value;
-				// La 1ère étape consiste à définir l'expression régulière d'une adresse email
-				var regEmail = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
-				var res =regEmail.test(mail);
-				if(res==false ||document.getElementById('login').value.length >50){
-					alert("identifiant invalide trop long longeur max 50 caractère ou mauvais structure");
-				}
-				return res||document.getElementById('login').value.length >50;
-			}
-
-			//Génère une chaine de caractèreS aléatoire
-			function ChaineAleatoire(nbcar){
-				var ListeCar = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-				"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
-				"0","1","2","3","4","5","6","7","8","9");
-				var Chaine ='';
-				for(i = 0; i < nbcar; i++){
-					Chaine = Chaine + ListeCar[Math.floor(Math.random()*ListeCar.length)];
-				}
-				return Chaine;
-			}
-
-			function verif_mdp(){
-				if(document.getElementById('mdp').value.length < 8||document.getElementById('mdp').value.length >50){
-					alert("mot de passe invalide longueur entre 8 et 50 caractère");
-					return false;
-				}
-				else {
-					return true;
-				}
-			}
-			function verif(formulaire){
-				var valide=false;
-				valide= verif_mail(formulaire)&&verif_mdp();
-				if(valide){
-					alert("Ajout réussi");
-				}
-			}
-			//Au chargement de la page un mot de passe aléatoire de 8 caractère à placé dans la case mot de passe
-			function mdpRandom(){
-				document.getElementById('mdp').value=ChaineAleatoire(8);
-			}
-
-			function verif_vide(){
-				if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
-					alert("Au moins un champs est vide");
-					return false;
-				}
-				else {
-					return true;
-					}
-			}
-
-
-
-
-
-	$(document).ready(function(){
-
-		$("#submit").click(function(e){
-			e.preventDefault();
-
-			$.post(
-				'login.php', // page pour se connecter
-				{
-					login : $("#login").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
-					mdp : $("#mdp").val()
-				},
-
-				function(data){
-
-					if(data == 'Success'){
-						 // Le membre est connecté. Ajoutons lui un message dans la page HTML.
-						 $("#resultat").html("<p>Vous avez été connecté avec succès !</p>");
-						 window.location.href='stagiaire.php';
-					}
-					else{
-						 // Le membre n'a pas été connecté. (data vaut ici "failed")
-						 $("#resultat").html("<p>Erreur lors de la connexion...</p>");
-					}
-
-				},
-				'text'
-			 );
-		});
-	});
-</script>
-<script>
-
-			//Fonction vérifiant la structure de l'adresse mail
-			function verif_mail(formulaire){
-				var mail=formulaire.login.value;
-				// La 1ère étape consiste à définir l'expression régulière d'une adresse email
-				var regEmail = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
-				var res =regEmail.test(mail);
-				if(res==false ||document.getElementById('login').value.length >50){
-					alert("identifiant invalide trop long longeur max 50 caractère ou mauvais structure");
-				}
-				return res||document.getElementById('login').value.length >50;
-			}
-
-			//Génère une chaine de caractèreS aléatoire
-			function ChaineAleatoire(nbcar){
-				var ListeCar = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-				"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
-				"0","1","2","3","4","5","6","7","8","9");
-				var Chaine ='';
-				for(i = 0; i < nbcar; i++){
-					Chaine = Chaine + ListeCar[Math.floor(Math.random()*ListeCar.length)];
-				}
-				return Chaine;
-			}
-
-			function verif_mdp(){
-				if(document.getElementById('mdp').value.length < 8||document.getElementById('mdp').value.length >50){
-					alert("mot de passe invalide longueur entre 8 et 50 caractère");
-					return false;
-				}
-				else {
-					return true;
-				}
-			}
-			function verif(formulaire){
-				var valide=false;
-				valide= verif_mail(formulaire)&&verif_mdp();
-				if(valide){
-					alert("Ajout réussi");
-				}
-			}
-			//Au chargement de la page un mot de passe aléatoire de 8 caractère à placé dans la case mot de passe
-
-			window.onload = function mdpRandom(){
-				document.getElementById('mdp').value=ChaineAleatoire(8);
-			}
-
-			function verif_vide(){
-				if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
-					alert("Au moins un champs est vide");
-					return false;
-				}
-				else {
-					return true;
-					}
-			}
-		</script>
 </body>
 </html>

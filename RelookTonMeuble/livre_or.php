@@ -19,6 +19,7 @@
 				return true;
 			}
 		</script>
+		<link rel="icon" type="image/png" href="img/logo.png" />
 		 <meta charset="utf-8">
 		  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		  <title>Livre d'Or</title>
@@ -55,7 +56,7 @@
 		<body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-    <?php include "menu.html"; ?>
+    <?php include "menu.php"; ?>
     
     
   <!-- Content Wrapper. Contains page content -->
@@ -86,7 +87,7 @@
                     </div>
                     
                     <div class="col-md-8">
-                        <input type='text' placeholder='Votre nom'name='nom' id='nom'/> <br/><br/>
+                        <input type='text' placeholder="Votre nom"name='nom' id='nom'/> <br/><br/>
                     </div>
                 
                 </div>
@@ -96,7 +97,7 @@
                     </div>
                     
                     <div class="col-md-8">
-                        <input type='text' placeholder='Votre prenom'name='prenom' id='prenom'/> <br/><br/>
+                        <input type='text' placeholder="Votre prenom" name='prenom' id='prenom'/> <br/><br/>
                     </div>
                 
                 </div>
@@ -106,7 +107,7 @@
                     </div>
                     
                     <div class="col-md-8">
-                        <textarea name="message" placeholder='Votre message'id="message" rows="10" cols="50"></textarea><br/><br/>
+                        <textarea name="message" placeholder="Votre message" id="message" rows="10" cols="50"></textarea><br/><br/>
                     </div>
                 
                 </div>
@@ -114,13 +115,8 @@
                     <div class="col-md-2">
                         <label for="note">Note : </label>
                     </div>
-                    
                     <div class="col-md-8">
-  
-
-                    <!--
                           <div class="rating row">
-
                               <div class="rating-box">
                                   <ul class="rating-preview">
                                       <li>:'(</li>
@@ -140,13 +136,13 @@
                             </ul>
 
                         </div>
-                     -->   
                         
                         
                         
                         
                         
-                    
+                        
+                    <!--
                         <input type='radio' name='note' value='1'>1
                         <input type='radio' name='note' value='2'>2
                         <input type='radio' name='note' value='3' checked='check'>3
@@ -154,7 +150,7 @@
                         <input type='radio' name='note' value='5'>5
                         <br/>
                         <br/>
-                   
+                    -->
                     </div>
                 
                 </div>
@@ -173,7 +169,59 @@
             </div>
         </div>
     </form>  
-            
+            <?php
+			/*
+				Page affichant les demandes de stages ressus    
+
+				il est possible de visualiser ou telecharger les documents joins pas le candidat
+				les documents ne peuvent etre visualiser que sous les formats traité par le navigateur
+				les documents au mauvais format sont téléchargés
+
+				Une fois une demande traité, on peut la supprimer de la liste des demandes
+
+			*/
+			include'connection_bd.php';
+			
+			//compte le nombre de ligne dans la table affichée
+			$req = $bdd->query("SELECT  COUNT(*) as compteligne FROM livre_or " );
+			$lignes = $req->fetch();
+			$req->closeCursor();
+				
+				
+			//si il y à au moins 1 demande de stage
+			if($lignes['compteligne']>0){
+				$num=0;
+				echo "<table style='border:3px solid black; border-collapse: collapse;'>
+
+					<tr style='border:2px solid black'>
+					<th style='border:2px solid black'> nom prenom</th>
+					<th style='border:2px solid black'>date du poste</th>
+					<th style='border:2px solid black'>message</th>
+
+					<th style='border:2px solid black'>note</th>
+					</tr> ";
+					
+				$requete=$bdd -> query('SELECT nom,prenom,message FROM livre_or')or exit(mysql_error());
+				//on stoque les deux docs sur la meme lignes ou lignes differentes ?
+					while ($donnees = $requete -> fetch()) {
+						echo "<tr style='border:2px solid black'> 
+						<td style='border:2px solid black'>".$donnees['nom']." ".$donnees['prenom']." </td> ";
+						
+						$requete1=$bdd -> query('SELECT message,note,date FROM livre_or where nom="'.$donnees['nom'].'"and prenom="'.$donnees['prenom'].'"')or exit(mysql_error());
+						while ($donnees1 = $requete1 -> fetch()) {
+							echo"<td style='border:2px solid black'>".$donnees1['date']."</td>";
+							echo"<td style='border:2px solid black'>".$donnees1['message']."</td>";
+							echo"<td style='border:2px solid black'>".$donnees1['note']."</td>";
+						}
+						echo"</tr> ";
+					}
+				echo"</table>
+				<br />";
+			}
+			else{
+				echo "<h2>aucun message</h2>";
+			}
+		?>
     </section>
     <!-- /.content -->
   </div>
@@ -209,7 +257,13 @@
 <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- SlimScroll -->
-        <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS -->
+<script src="bower_components/chart.js/Chart.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard2.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
             
 <script type="text/javascript">
     $(".rating-box").show().css('left',$(".rating-n li").eq(0).offset().left);
@@ -252,54 +306,6 @@
             
             
 </script>
-		<?php
-			/*
-				Page affichant les demandes de stages ressus    
-				il est possible de visualiser ou telecharger les documents joins pas le candidat
-				les documents ne peuvent etre visualiser que sous les formats traité par le navigateur
-				les documents au mauvais format sont téléchargés
-
-				Une fois une demande traité, on peut la supprimer de la liste des demandes
-			*/
-			include'connection_bd.php';
-			
-			//compte le nombre de ligne dans la table affichée
-			$req = $bdd->query("SELECT  COUNT(*) as compteligne FROM livre_or " );
-			$lignes = $req->fetch();
-			$req->closeCursor();
-				
-				
-			//si il y à au moins 1 demande de stage
-			if($lignes['compteligne']>0){
-				$num=0;
-				echo "<table style='border:3px solid black; border-collapse: collapse;'>
-					<tr style='border:2px solid black'>
-					<th style='border:2px solid black'> nom prenom</th>
-					<th style='border:2px solid black'>date du poste</th>
-					<th style='border:2px solid black'>message</th>
-					<th style='border:2px solid black'>note</th>
-					</tr> ";
-					
-				$requete=$bdd -> query('SELECT nom,prenom,message FROM livre_or')or exit(mysql_error());
-				//on stoque les deux docs sur la meme lignes ou lignes differentes ?
-					while ($donnees = $requete -> fetch()) {
-						echo "<tr style='border:2px solid black'> 
-						<td style='border:2px solid black'>".$donnees['nom']." ".$donnees['prenom']." </td> ";
-						
-						$requete1=$bdd -> query('SELECT message,note,date FROM livre_or where nom="'.$donnees['nom'].'"and prenom="'.$donnees['prenom'].'"')or exit(mysql_error());
-						while ($donnees1 = $requete1 -> fetch()) {
-							echo"<td style='border:2px solid black'>".$donnees1['date']."</td>";
-							echo"<td style='border:2px solid black'>".$donnees1['message']."</td>";
-							echo"<td style='border:2px solid black'>".$donnees1['note']."</td>";
-						}
-						echo"</tr> ";
-					}
-				echo"</table>
-				<br />";
-			}
-			else{
-				echo "<h2>aucune candidature</h2>";
-			}
-		?>
+		
 	</body>
 </html>

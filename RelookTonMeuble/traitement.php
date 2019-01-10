@@ -3,7 +3,7 @@
 	<head>
        <title>Envoyer une image</title>
        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	   <link rel="icon" type="image/png" href="image/poisson_favicon.png" />
+	   <link rel="icon" type="image/png" href="img/logo.png" />
 
 	   <script>
 			function verif_vide(){
@@ -71,7 +71,7 @@
    <body class="hold-transition sidebar-mini">
         <div class="wrapper">
 
-            <?php include "menu.html"; ?>
+            <?php include "menu.php"; ?>
 
 
               <!-- Content Wrapper. Contains page content -->
@@ -97,7 +97,7 @@
 
                     <!-- Formulaire pour ajouter une image -->
 
-                    <form enctype="multipart/form-data" action="#" method="post" onsubmit="return verif();">
+                    <form enctype="multipart/form-data" action="#" method="POST" onsubmit="return verif();">
                         <div class="row" style="margin: 10px 0px 0px 15px;">
                             <div class="col-md-8">
                                 <label for="nom">Nom* : </label>
@@ -167,5 +167,11 @@
         <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
         <!-- SlimScroll -->
         <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- ChartJS -->
+        <script src="bower_components/chart.js/Chart.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="dist/js/pages/dashboard2.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
 	</body>
 </html>

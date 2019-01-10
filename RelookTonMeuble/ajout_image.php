@@ -27,21 +27,21 @@
 				$image = file_get_contents($_FILES['image']['tmp_name']);
 				
 				//prepare la requète
-				$req = $bdd->prepare("INSERT INTO images(nom, description, img, extension, taille,design,type,auteur) VALUES(:nom, :description, :image, :ext, :taille, :design, :type, :auteur)");
+				$req = $bdd->prepare("INSERT INTO images (nom, description, img, extension, taille,design,type,auteur) VALUES(:nom, :description, :img, :ext, :taille, :design, :type, :auteur)");
 				
 				//execute la requète avec les valeurs
 				$req->execute(array(
 					'nom' => $_POST['nom'],
 					'description' => $_POST['description'],
-					'image' => $image,
+					'img' => $image,
 					'ext' => $_FILES['image']['type'],
 					'taille' => $_FILES['image']['size'],
 					'design' => $_POST['design'],
 					'type' => $_POST['type'],
-					'auteur'=> $_POST['auteur']
+					'auteur'=> $_SESSION['login']
 					));
- 
-				echo 'L\'insertion s est bien déroulée !';
+ 				echo $_FILES['image']['type']." size:".$_FILES['image']['size']." design:".$_POST['design']." type:".$_POST['type']." auteur:".$_SESSION['login'];
+				echo '<script>alert("L\'insertion s est bien d&eacute;  roul&eacute;e !");</script>';
 			 }
 		  }
 	  }
