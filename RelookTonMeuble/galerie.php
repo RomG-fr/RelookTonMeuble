@@ -57,20 +57,20 @@ session_start();?>
                             <div class="col-md-3">
                                 <label for="desing">Design : </label>
                                 <select name="design" id="design" size="1">
-                                    <option>tous</option>
-                                    <option>modern</option>
-                                    <option>ancien</option>
-                                    <option>brute</option>
+                                    <option>Tous</option>
+                                    <option>Modern</option>
+                                    <option>Ancien</option>
+                                    <option>Brute</option>
                                 </select>
                             </div>
 
                             <div class="col-md-3">
-                                <label for="type">type : </label>
+                                <label for="type">Type : </label>
                                 <select name="type" id="type" size="1">
-                                    <option>tous</option>
-                                    <option>commode</option>
-                                    <option>armoire</option>
-                                    <option>table</option>
+                                    <option>Tous</option>
+                                    <option>Commode</option>
+                                    <option>Armoire</option>
+                                    <option>Table</option>
                                 </select>
                             </div>
                             
@@ -81,7 +81,7 @@ session_start();?>
                             </div>
                             
                             <div class="col-md-3">
-                                <input type="submit" value="filtrer"/>
+                                <input type="submit" value="Filtrer"/>
                             </div>
                         </div>
                         

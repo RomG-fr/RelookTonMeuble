@@ -158,7 +158,7 @@
                         </div> 
                         
                       </div>
-                      <input type='submit' value='envoyer'/>
+                      <input type='submit' value='Envoyer'/>
                     </form>
                 </section>
                 <!-- /.content -->
