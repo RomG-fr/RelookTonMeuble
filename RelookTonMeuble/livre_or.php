@@ -118,7 +118,7 @@
                     <div class="col-md-8">
   
 
-  
+                    <!--
                           <div class="rating row">
 
                               <div class="rating-box">
@@ -140,13 +140,13 @@
                             </ul>
 
                         </div>
+                     -->   
                         
                         
                         
                         
                         
-                        
-                    <!--
+                    
                         <input type='radio' name='note' value='1'>1
                         <input type='radio' name='note' value='2'>2
                         <input type='radio' name='note' value='3' checked='check'>3
@@ -154,7 +154,7 @@
                         <input type='radio' name='note' value='5'>5
                         <br/>
                         <br/>
-                    -->
+                   
                     </div>
                 
                 </div>
@@ -209,13 +209,7 @@
 <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- SlimScroll -->
-<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- ChartJS -->
-<script src="bower_components/chart.js/Chart.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard2.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+        <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
             
 <script type="text/javascript">
     $(".rating-box").show().css('left',$(".rating-n li").eq(0).offset().left);
