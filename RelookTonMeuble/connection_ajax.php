@@ -2,7 +2,7 @@
 <html>
 <head> <meta charset="utf-8" />
     <title>Connexion</title>
-	<link rel="icon" type="image/png" href="image/poisson_favicon.png" />
+	<link rel="icon" type="image/png" href="img/logo.png" />
 	<script>
 		function verif_vide(){
 			if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
@@ -12,6 +12,9 @@
 		else {
 			return true;
 			}
+		}
+		function aler(){
+			alert("la");
 		}
 	</script>
 	 <meta charset="utf-8">
@@ -51,12 +54,12 @@
 
 </head>
 
-<body>
+<body onload='aler();'>
     
 
-     <body class="hold-transition sidebar-mini">
+     <body class="hold-transition sidebar-mini" >
 <div class="wrapper">
-    <?php include "menu.html"; ?>
+    <?php include "menu.php"; ?>
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -81,7 +84,7 @@
 	    <div class="cont_principal">
 		    <div class="cont_centrar">
                 <div class="cont_login">
-                      <form onsubmit='return verif_vide()'>
+                      <form method='post' onsubmit="return verif_vide()">
                           <div class="cont_tabs_login">
                             <ul class='ul_tabs'>
                               <li class="active">
@@ -102,7 +105,7 @@
                          
                         </div>
                   <div class="cont_btn">
-                       <button class="btn_sign">Se Connecter</button>
+                       <button class="btn_sign" name="submit" id="submit">Se Connecter</button>
 
                     </div>
 
@@ -134,39 +137,34 @@
 </div>
 <!-- ./wrapper -->
 
-        <!-- jQuery 3 -->
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- FastClick -->
-        <script src="bower_components/fastclick/lib/fastclick.js"></script>
-        <!-- AdminLTE App -->
-        <script src="dist/js/adminlte.min.js"></script>
-        <!-- Sparkline -->
-        <script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-        <!-- jvectormap  -->
-        <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-        <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-        <!-- SlimScroll -->
-        <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-
-	<?php
-	$linko="'logout.php'";
-	echo'<input type="button" value="deconnection" OnClick="window.location.href='.$linko.'"/>';
-		if(isset($_SESSION['login'])){
-			$link="'stagiaire.php'";
-			echo'<input type="button" value="acceder au réalisation" OnClick="window.location.href='.$link.'"/>';
-		}
-	?>
+<!-- jQuery 3 -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- Sparkline -->
+<script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<!-- jvectormap  -->
+<script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- SlimScroll -->
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- ChartJS -->
+<script src="bower_components/chart.js/Chart.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard2.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
 
 <script>
 	$(document).ready(function(){
-
 		$("#submit").click(function(e){
 			e.preventDefault();
-
 			$.post(
 				'login.php', // page pour se connecter
 				{
@@ -178,12 +176,12 @@
 
 					if(data == 'Success'){
 						 // Le membre est connecté. Ajoutons lui un message dans la page HTML.
-						 $("#resultat").html("<p>Vous avez été connecté avec succès !</p>");
-						 window.location.href='stagiaire.php';
+						 $("#resultat").html("<p>"+data+"Vous avez été connecté avec succès !</p>");
+						 window.location.href='index.php';
 					}
 					else{
 						 // Le membre n'a pas été connecté. (data vaut ici "failed")
-						 $("#resultat").html("<p>Erreur lors de la connexion...</p>");
+						 $("#resultat").html("<p>"+data+" Erreur lors de la connexion...</p>");
 					}
 
 				},
@@ -191,6 +189,9 @@
 			 );
 		});
 	});
+
+
+
 </script>
 </body>
 </html>
