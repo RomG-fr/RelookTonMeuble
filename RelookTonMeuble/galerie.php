@@ -97,7 +97,7 @@
                     </form>
                     
                     <?php
-			session_start();
+			//session_start();
 			if(isset($_SESSION['connecte'])){
 			$link="'traitement.php'";
 		    echo'<input style="float: right; margin-right: 10px;" type="button" value="Ajouter image..." OnClick="window.location.href='.$link.'"/>';}
