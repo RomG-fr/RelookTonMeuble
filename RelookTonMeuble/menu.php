@@ -16,7 +16,7 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <?php
-		session_start();
+          session_start();
 		if(isset($_SESSION['connecte'])){
 		   	echo'<ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
