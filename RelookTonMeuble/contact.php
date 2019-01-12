@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">  
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
   <link rel="stylesheet" href="css/perso_custom.css">   <!-- CSS à Jerome -->
 
 
@@ -29,10 +29,10 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    
 
-    
-    
+
+
+
     		<script>
 			function verif_mail(formulaire){
 				var mail=formulaire.login.value;
@@ -66,13 +66,13 @@
 				return verif_vide()&&verif_mail(form);
 			}
 		</script>
-    
-    
+
+
 </head>
-    
-    
-    
-    
+
+
+
+
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
 
@@ -156,10 +156,10 @@
                             <p><b>Ville :</b> Rennes</p>
                             <p><b>Horaire :</b> 24h/24  7j/7</p>
                           </div>
-                        </div> 
-                        
+                        </div>
+
                       </div>
-                      <input type='submit' value='envoyer'/>
+                      <input type='submit' value='Envoyer'/>
                     </form>
                 </section>
                 <!-- /.content -->
@@ -173,7 +173,7 @@
                 <strong>Copyright &copy; 2018 <a href="#">Relook' ton meuble</a>.</strong> Tous droits réservés.
               </footer>
 
-          
+
 
           <!-- Add the sidebar's background. This div must be placed
                immediately after the control sidebar -->
@@ -200,6 +200,3 @@
 
     </body>
 </html>
-    
-    
-    
