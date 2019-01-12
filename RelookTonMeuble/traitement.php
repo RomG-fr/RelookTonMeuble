@@ -110,17 +110,17 @@
                                 <label for="desing">Design : </label>
                                 <select name="design" size="1">
                                     <option>...</option>
-                                    <option>modern</option>
-                                    <option>ancien</option>
-                                    <option>brute</option>
+                                    <option>Moderne</option>
+                                    <option>Ancien</option>
+                                    <option>Brute</option>
                                 </select>
                                     <br/><br/>
                                 <label for="type">Type : </label>
                                 <select name="type" size="1">
                                     <option>...</option>
-                                    <option>commode</option>    
-                                    <option>armoire</option>
-                                    <option>table</option>
+                                    <option>Commode</option>    
+                                    <option>Armoire</option>
+                                    <option>Table</option>
                                 </select>
                                     <br/><br/><br/><br/>
 

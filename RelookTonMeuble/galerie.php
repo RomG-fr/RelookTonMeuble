@@ -67,7 +67,7 @@
                                 <label for="desing">Design : </label>
                                 <select name="design" id="design" size="1">
                                     <option>Tous</option>
-                                    <option>Modern</option>
+                                    <option>Moderne</option>
                                     <option>Ancien</option>
                                     <option>Brute</option>
                                 </select>
@@ -168,7 +168,7 @@
                                 //Si l'utilisateur souhaite plus de détail sur un meuble
                                 $prompt=$prompt.
                                 '<div class="panel-footer boite_pied">
-                                    <input type="button" id="detail'.$result["id_img"].'" value="detail..." OnClick="'.$direction.'"/>
+                                    <input type="button" id="detail'.$result["id_img"].'" value="Détail..." OnClick="'.$direction.'"/>
                                     <img class="boite_icon_croix" src="images/croix.png" alt="image croix" OnClick="'.$direction2.'"/>
                                 </div>   
                             </div>';
