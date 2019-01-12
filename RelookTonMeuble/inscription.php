@@ -1,15 +1,4 @@
-<?php
-session_start();
 
-//utilise sign_in
-
-/*
-Lorsque la secretaire veut ajouter un stagiaire elle se rend sur cette page pour l'ajouter
-lors du chargement de la page un mot de passe est généré aléatoirement 
-la secretaire doit saisir le mail du stagiaire à ajouter
-*/
-
-?>
 <html>
 	<head>
 		<title>Inscrire un stagiaire</title>
