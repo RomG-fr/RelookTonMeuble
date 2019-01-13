@@ -60,6 +60,7 @@
                 <section class="content">	
                 	</br>
 					<input type="button" value="Retour" OnClick="window.location.href='galerie.php'"/></br></br>
+					<center>
 					<?php 
 						if(isset($_GET['message'])){
 							//connexion à la base de données
@@ -69,7 +70,7 @@
 							$reponse = $bdd->query('SELECT id_img, nom, description,extension,taille FROM images where id_img='.$_GET['message']);
 							while($result = $reponse->fetch()) {
 								echo '<div>
-										<img src="apercu.php?id_img='.$result['id_img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" /></br></br>
+										<img style="border:solid 5px Sienna;" src="apercu.php?id_img='.$result['id_img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" /></br></br>
 										<p><b>Description :</b> '.$result["description"].'</p>
 										<p><b>Taille :</b> '.$result["taille"].' octets</p>
 										<p><b>Extension :</b> '.$result["extension"].'</p>
@@ -81,6 +82,7 @@
 							echo"erreur";
 						}
 					?>
+					</center>
                 </section>
                 <!-- /.content -->
               </div>
@@ -90,7 +92,7 @@
                 <div class="pull-right hidden-xs">
                   <b>Version</b> 0.2.1
                 </div>
-                <strong>Copyright &copy; 2019 <a href="#">Relook' ton meuble</a>.</strong> Tous droits réservés.
+                <strong>Copyright &copy; 2019 <a href="#">Relook' ton meuble</a>.</strong> Tous droits r&eacute;serv&eacute;s.
               </footer>
 
           
