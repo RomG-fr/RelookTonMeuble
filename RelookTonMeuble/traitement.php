@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php session_start();?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
 	<head>
        <title>Envoyer une image</title>
@@ -19,7 +20,7 @@
 				var a=true;
 				var b=true;
 				if(document.getElementById('nom').value.length >50){
-					alert("nom trop longue");
+					alert("nom trop long");
 					a=false;
 				}
 				if(document.getElementById('description').value.length >100){

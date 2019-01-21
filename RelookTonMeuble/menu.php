@@ -49,7 +49,7 @@
 			<div class="pull-left">';
 			if($_SESSION['statut']=='stagiaire'){
 				echo'
-				  <a href="stagiaire.php" class="btn btn-default btn-flat">mes réalisations</a>';
+				  <a href="stagiaire.php" class="btn btn-default btn-flat">Mes réalisations</a>';
 			}
 			echo'</div>
 			<div class="pull-right">

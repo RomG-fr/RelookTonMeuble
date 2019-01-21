@@ -16,7 +16,7 @@
 			echo '<script> alert("Vous devez uploader un fichier de type png, gif, jpg, jpeg.");</script>';
 		else {         
 			//on définit la taille maximale
-			define('MAXSIZE', 300000);        
+			define('MAXSIZE', 5000000);        
 			if($_FILES['image']['size'] > MAXSIZE)
 				echo '<script> alert("Votre image est supérieure à la taille maximale de '.MAXSIZE.' octets");</script>';
 			else {
