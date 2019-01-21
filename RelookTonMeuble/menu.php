@@ -4,7 +4,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>RT</b>M</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Relook'</b>  ton meuble</span>
+      <span class="logo-lg"><b>Relook'</b>  Ton Meuble</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -45,7 +45,7 @@
 			<div class="pull-left">';
 			if($_SESSION['statut']=='stagiaire'){
 				echo'
-				  <a href="stagiaire.php" class="btn btn-default btn-flat">mes réalisations</a>';
+				  <a href="stagiaire.php" class="btn btn-default btn-flat">Mes réalisations</a>';
 			}
 			echo'</div>
 			<div class="pull-right">
@@ -81,7 +81,7 @@
         	  		<img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
         			</div>
 				<div class="pull-left info">
-         		 	<p  style="color: azure; font-weight: bold;">stagiaire</p>
+         		 	<p  style="color: azure; font-weight: bold;">Stagiaire</p>
           			<p  style="color: silver;"><i class="fa fa-circle text-success"></i> En Ligne</p>
         			</div>';
 			}

@@ -14,24 +14,7 @@ session_start();?>
 		<title>Galerie d'images</title>
 		<link rel="icon" type="image/png" href="img/logo.png" />
        	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	   	<style type="text/css">
-			body {
-				width: 100%;
-			}
- 	
-			div {
-				width: 22%;
-				float: left;
-				text-align: center;
-				border: 1px solid black;
-				margin: 5px;
-				padding:  5px;
-			}
-	 
-			p {
-				text-align: left;
-			}
-	   	</style>
+	   	
 		 <meta charset="utf-8">
 		  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		  <!-- Tell the browser to be responsive to screen width -->
@@ -50,7 +33,6 @@ session_start();?>
 		       folder instead of downloading all of them to reduce the load. -->
 		  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 		  <link rel="stylesheet" href="css/perso_custom.css">
-          <link rel="stylesheet" href="css/style_livre_or.css">
 
 
 		  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -84,7 +66,7 @@ session_start();?>
 		    </section>
 			<!-- Main content -->
 		    <section class="content">
-				<input type="button" value="deconnection" OnClick="window.location.href='logout.php'"/>
+				<input type="button" value="Déconnection" OnClick="window.location.href='logout.php'"/>
 				<br />
 	<!-- Formulaire permettant de choisir les types et design des meubles afficher -->
 				<?php
