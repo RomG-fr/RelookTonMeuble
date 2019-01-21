@@ -1,5 +1,5 @@
+<?php session_start(); ?>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
-<<<<<<< HEAD
 	<head>
 		<title>Galerie d'images</title>
 		<link rel="icon" type="image/png" href="img/logo.png" />
@@ -58,87 +58,31 @@
 		    <section class="content">
 				<input type="button" value="Déconnection" OnClick="window.location.href='logout.php'"/>
 				<br />
-=======
-   <head>
-       <title>Galerie d'images</title>
-	   <link rel="icon" type="image/png" href="image/poisson_favicon.png" />
-       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	   <style type="text/css">
-		body {
-			width: 95%;
-		}
-
-		div {
-			width: 22%;
-			float: left;
-			text-align: center;
-			border: 1px solid black;
-			margin: 5px;
-			padding:  5px;
-		}
-
-		p {
-			text-align: left;
-		}
-	   </style>
-   </head>
-   <body>
-
-	<h1>Galerie d'images de <?php echo $_SESSION['login'];?></h1>
-
-	<input type="button" value="deconnection" OnClick="window.location.href='logout.php'"/>
-	<br />
-	<!-- Formulaire permettant de choisir les types et design des meubles afficher -->
-	<?php
-
-		include'connection_bd.php';
-
-		//structure de base de la requète
-		$req="SELECT id_img, nom, description FROM images where auteur='".$_SESSION['login']."'";
-		$reponse = $bdd->query($req);
-		//affichage des images
-
-	    while($result = $reponse->fetch()) {
->>>>>>> ef1ad4e4ebf693e071b014898175c1d612e702ef
-
-			//compte le nombre de ligne dans la table affichée
-			$req = $bdd->query("SELECT  COUNT(*) as compteligne FROM livre_or " );
-			$lignes = $req->fetch();
-			$req->closeCursor();
-
-
-			//si il y à au moins 1 demande de stage
-			if($lignes['compteligne']>0){
-				$num=0;
-				echo "<table style='border:3px solid black; border-collapse: collapse;'>
-					<tr style='border:2px solid black'>
-					<th style='border:2px solid black'> nom prenom</th>
-					<th style='border:2px solid black'>date du poste</th>
-					<th style='border:2px solid black'>message</th>
-					<th style='border:2px solid black'>note</th>
-					</tr> ";
-
-				$requete=$bdd -> query('SELECT nom,prenom,message FROM livre_or')or exit(mysql_error());
-				//on stoque les deux docs sur la meme lignes ou lignes differentes ?
-					while ($donnees = $requete -> fetch()) {
-						echo "<tr style='border:2px solid black'>
-						<td style='border:2px solid black'>".$donnees['nom']." ".$donnees['prenom']." </td> ";
-
-						$requete1=$bdd -> query('SELECT message,note,date FROM livre_or where nom="'.$donnees['nom'].'"and prenom="'.$donnees['prenom'].'"')or exit(mysql_error());
-						while ($donnees1 = $requete1 -> fetch()) {
-							echo"<td style='border:2px solid black'>".$donnees1['date']."</td>";
-							echo"<td style='border:2px solid black'>".$donnees1['message']."</td>";
-							echo"<td style='border:2px solid black'>".$donnees1['note']."</td>";
-						}
-						echo"</tr> ";
-					}
-				echo"</table>
-				<br />";
-			}
-			else{
-				echo "<h2>aucun message</h2>";
-			}
-		?>
+				<?php
+	
+					include'connection_bd.php';
+		
+					//structure de base de la requète
+					$req="SELECT id_img, nom, description FROM images where auteur='".$_SESSION['login']."'";
+					$reponse = $bdd->query($req);
+					//affichage des images
+		
+	    			while($result = $reponse->fetch()) {
+			
+					$prompt='';
+					//affiche les photos des meubles
+					$prompt='
+					<div> 
+						<img src="apercu.php?id_img='.$result['id_img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" />
+						<p>Description : '.$result["description"].'</p></div>';
+					
+					$direction="window.location.href='detail.php?message=".$result["id_img"]."'";
+					$direction2="window.location.href='efface.php?id=".$result["id_img"]."'";
+					echo $prompt;
+	   				}
+	    			$reponse->closeCursor();
+				?>
+	
     </section>
     <!-- /.content -->
   </div>

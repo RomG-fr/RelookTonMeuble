@@ -15,63 +15,6 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 		<title>Inscrire un stagiaire</title>
 		<link rel="icon" type="image/png" href="img/logo.png" />
 		<meta charset="utf-8"/>
-		<script>
-			
-			//Fonction vérifiant la structure de l'adresse mail
-			function verif_mail(formulaire){
-				var mail=formulaire.login.value;
-				// La 1ère étape consiste à définir l'expression régulière d'une adresse email
-				var regEmail = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
-				var res =regEmail.test(mail);
-				if(res==false ||document.getElementById('login').value.length >50){
-					alert("identifiant invalide trop long longeur max 50 caractère ou mauvais structure");
-				}
-				return res||document.getElementById('login').value.length >50;
-			}
-		
-			//Génère une chaine de caractèreS aléatoire
-			function ChaineAleatoire(nbcar){
-				var ListeCar = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-				"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
-				"0","1","2","3","4","5","6","7","8","9");
-				var Chaine ='';
-				for(i = 0; i < nbcar; i++){
-					Chaine = Chaine + ListeCar[Math.floor(Math.random()*ListeCar.length)];
-				}
-				return Chaine;
-			}
-			
-			function verif_mdp(){
-				if(document.getElementById('mdp').value.length < 8||document.getElementById('mdp').value.length >50){
-					alert("mot de passe invalide longueur entre 8 et 50 caractère");
-					return false;
-				}
-				else {
-					return true;
-				}
-			}
-			function verif(formulaire){
-				var valide=false;
-				valide= verif_mail(formulaire)&&verif_mdp();
-				if(valide){
-					alert("Ajout réussi");
-				}
-			}
-			//Au chargement de la page un mot de passe aléatoire de 8 caractère à placé dans la case mot de passe
-			function mdpRandom(){
-				document.getElementById('mdp').value=ChaineAleatoire(8);
-			}
-		
-			function verif_vide(){
-				if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
-					alert("Au moins un champs est vide");
-					return false;
-				}
-				else {
-					return true;
-					}
-			}
-		</script>
 		  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		  <!-- Tell the browser to be responsive to screen width -->
 		  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -152,7 +95,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 		                    <div class="cont_text_inputs">
 		                          <input type="text" class="input_form_sign d_block active_inp" placeholder="Email" name="emauil_us" id="login"/>
 
-		                          <input type="password" class="input_form_sign d_block  active_inp" placeholder="Mot de passe" name="pass_us" id="mdp" onload='mdpRandom()'/>                         
+		                          <input type="password" class="input_form_sign d_block  active_inp" placeholder="Mot de passe" name="pass_us" id="mdp" onblur="this.type='password'" onfocus="this.type='text'" />                         
 		                    </div>
 		                  	<div class="cont_btn">
 		                       <button class="btn_sign">Inscrire</button>
@@ -185,6 +128,63 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 
 </div>
 <!-- ./wrapper -->
+<script>
+			
+		//Fonction vérifiant la structure de l'adresse mail
+		function verif_mail(formulaire){
+			var mail=formulaire.login.value;
+			// La 1ère étape consiste à définir l'expression régulière d'une adresse email
+			var regEmail = new RegExp('^[0-9a-z._-]+@{1}[0-9a-z.-]{2,}[.]{1}[a-z]{2,5}$','i');
+			var res =regEmail.test(mail);
+			if(res==false ||document.getElementById('login').value.length >50){
+				alert("identifiant invalide trop long longeur max 50 caractère ou mauvais structure");
+			}
+			return res||document.getElementById('login').value.length >50;
+		}
+		
+		//Génère une chaine de caractèreS aléatoire
+		function ChaineAleatoire(nbcar){
+			var ListeCar = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
+				"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+				"0","1","2","3","4","5","6","7","8","9");
+			var Chaine ='';
+			for(i = 0; i < nbcar; i++){
+				Chaine = Chaine + ListeCar[Math.floor(Math.random()*ListeCar.length)];
+			}
+			return Chaine;
+		}
+			
+		function verif_mdp(){
+			if(document.getElementById('mdp').value.length < 8||document.getElementById('mdp').value.length >50){
+				alert("mot de passe invalide longueur entre 8 et 50 caractère");
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+		function verif(formulaire){
+			var valide=false;
+			valide= verif_mail(formulaire)&&verif_mdp();
+			if(valide){
+				alert("Ajout réussi");
+			}
+		}
+		//Au chargement de la page un mot de passe aléatoire de 8 caractère à placé dans la case mot de passe
+		window.onload = function mdpRandom(){
+			document.getElementById('mdp').value=ChaineAleatoire(8);
+		}
+		
+		function verif_vide(){
+			if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
+				alert("Au moins un champs est vide");
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+</script>
 
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -207,6 +207,7 @@ la secretaire doit saisir le mail du stagiaire à ajouter
 <script src="dist/js/pages/dashboard2.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+
 
 </body>
 </html>
