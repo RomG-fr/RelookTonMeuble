@@ -1,28 +1,12 @@
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+<<<<<<< HEAD
 	<head>
-		<title>livre d'or</title>
-		<script>
-			function date(id){
-				date = new Date;
-				annee = date.getFullYear();
-				moi = date.getMonth()+1;
-				j = date.getDate();
-				if(j<10){
-					j = "0"+j;
-				}
-				if(moi<10){
-					moi = "0"+moi;
-				}
-				resultat = j+'/'+moi+'/'+annee;
-				document.getElementById(id).value = resultat;
-				setTimeout('date_heure("'+id+'");','1000');
-				return true;
-			}
-		</script>
+		<title>Galerie d'images</title>
 		<link rel="icon" type="image/png" href="img/logo.png" />
+       	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
 		 <meta charset="utf-8">
 		  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-		  <title>Livre d'Or</title>
 		  <!-- Tell the browser to be responsive to screen width -->
 		  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		  <!-- Bootstrap 3.3.7 -->
@@ -39,7 +23,6 @@
 		       folder instead of downloading all of them to reduce the load. -->
 		  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 		  <link rel="stylesheet" href="css/perso_custom.css">
-          <link rel="stylesheet" href="css/style_livre_or.css">
 
 
 		  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -53,138 +36,77 @@
 		  <link rel="stylesheet"
 		        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 	</head>
-		<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
     <?php include "menu.php"; ?>
-    
-    
+
+
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-            Livre d'or
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a></li>
-        <li class="active"><a href="#">Livre d'Or</a></li>
-      </ol>
-    </section>
+ 		<div class="content-wrapper">
+ 			   <!-- Content Header (Page header) -->
+ 			<section class="content-header">
+ 			     <h1>
+ 			           Galerie d'images de <?php echo $_SESSION['login'];?>
+ 			     </h1>
+ 			     <ol class="breadcrumb">
+ 			       <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a></li>
+ 			       <li class="active"><a href="#">Galerie d'images de <?php echo $_SESSION['login'];?></a></li>
+ 			     </ol>
+		    </section>
+			<!-- Main content -->
+		    <section class="content">
+				<input type="button" value="Déconnection" OnClick="window.location.href='logout.php'"/>
+				<br />
+=======
+   <head>
+       <title>Galerie d'images</title>
+	   <link rel="icon" type="image/png" href="image/poisson_favicon.png" />
+       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	   <style type="text/css">
+		body {
+			width: 95%;
+		}
 
-    <!-- Main content -->
-    <section class="content">
-        
-        <form action='send.php' method='POST' style="margin-left: 15px;">
-        <br /><br/>
-        <p>Votre avis nous intéresse.<p>
-        <br /><br/>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-2">
-                        <label for="nom">Nom: </label>
-                    </div>
-                    
-                    <div class="col-md-8">
-                        <input type='text' placeholder="Votre nom"name='nom' id='nom'/> <br/><br/>
-                    </div>
-                
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <label for="prenom">Prenom: </label>
-                    </div>
-                    
-                    <div class="col-md-8">
-                        <input type='text' placeholder="Votre prenom" name='prenom' id='prenom'/> <br/><br/>
-                    </div>
-                
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <label for="message">Votre message : </label>
-                    </div>
-                    
-                    <div class="col-md-8">
-                        <textarea name="message" placeholder="Votre message" id="message" rows="10" cols="50"></textarea><br/><br/>
-                    </div>
-                
-                </div>
-                <div class="row">
-                    <div class="col-md-2">
-                        <label for="note">Note : </label>
-                    </div>
-                    <div class="col-md-8">
-                          <div class="rating row">
-                              <div class="rating-box">
-                                  <ul class="rating-preview">
-                                      <li>:'(</li>
-                                      <li>:(</li>
-                                      <li>:|</li>
-                                      <li>:)</li>
-                                      <li>:D</li>
-                                  </ul>
-                              </div>
+		div {
+			width: 22%;
+			float: left;
+			text-align: center;
+			border: 1px solid black;
+			margin: 5px;
+			padding:  5px;
+		}
 
-                            <ul class="rating-n">
-                              <li><a href="#1"><span><input type='radio' name='note' value='1'>1</span></a></li>
-                              <li><a href="#2"><span><input type='radio' name='note' value='2'>2</span></a></li>
-                              <li><a href="#3"><span><input type='radio' name='note' value='3'>3</span></a></li>
-                              <li><a href="#4"><span><input type='radio' name='note' value='4'>4</span></a></li>
-                              <li><a href="#5"><span><input type='radio' name='note' value='5'>5</span></a></li>
-                            </ul>
+		p {
+			text-align: left;
+		}
+	   </style>
+   </head>
+   <body>
 
-                        </div>
-                        
-                        
-                        
-                        
-                        
-                        
-                    <!--
-                        <input type='radio' name='note' value='1'>1
-                        <input type='radio' name='note' value='2'>2
-                        <input type='radio' name='note' value='3' checked='check'>3
-                        <input type='radio' name='note' value='4'>4
-                        <input type='radio' name='note' value='5'>5
-                        <br/>
-                        <br/>
-                    -->
-                    </div>
-                
-                </div>
-                
-                
-                
-                
-                
-                <div class="row">
-                    <input type='hidden' id='date' name='date'>
-                    <!--<span id="date"></span>-->
-                    <script type="text/javascript">window.onload = date('date');</script>
-                    <br /><br />
-                    <input type='submit' value='Envoyer'/>
-                </div>
-            </div>
-        </div>
-    </form>  
-            <?php
-			/*
-				Page affichant les demandes de stages ressus    
-				il est possible de visualiser ou telecharger les documents joins pas le candidat
-				les documents ne peuvent etre visualiser que sous les formats traité par le navigateur
-				les documents au mauvais format sont téléchargés
-				Une fois une demande traité, on peut la supprimer de la liste des demandes
-			*/
-			include'connection_bd.php';
-			
+	<h1>Galerie d'images de <?php echo $_SESSION['login'];?></h1>
+
+	<input type="button" value="deconnection" OnClick="window.location.href='logout.php'"/>
+	<br />
+	<!-- Formulaire permettant de choisir les types et design des meubles afficher -->
+	<?php
+
+		include'connection_bd.php';
+
+		//structure de base de la requète
+		$req="SELECT id_img, nom, description FROM images where auteur='".$_SESSION['login']."'";
+		$reponse = $bdd->query($req);
+		//affichage des images
+
+	    while($result = $reponse->fetch()) {
+>>>>>>> ef1ad4e4ebf693e071b014898175c1d612e702ef
+
 			//compte le nombre de ligne dans la table affichée
 			$req = $bdd->query("SELECT  COUNT(*) as compteligne FROM livre_or " );
 			$lignes = $req->fetch();
 			$req->closeCursor();
-				
-				
+
+
 			//si il y à au moins 1 demande de stage
 			if($lignes['compteligne']>0){
 				$num=0;
@@ -195,13 +117,13 @@
 					<th style='border:2px solid black'>message</th>
 					<th style='border:2px solid black'>note</th>
 					</tr> ";
-					
+
 				$requete=$bdd -> query('SELECT nom,prenom,message FROM livre_or')or exit(mysql_error());
 				//on stoque les deux docs sur la meme lignes ou lignes differentes ?
 					while ($donnees = $requete -> fetch()) {
-						echo "<tr style='border:2px solid black'> 
+						echo "<tr style='border:2px solid black'>
 						<td style='border:2px solid black'>".$donnees['nom']." ".$donnees['prenom']." </td> ";
-						
+
 						$requete1=$bdd -> query('SELECT message,note,date FROM livre_or where nom="'.$donnees['nom'].'"and prenom="'.$donnees['prenom'].'"')or exit(mysql_error());
 						while ($donnees1 = $requete1 -> fetch()) {
 							echo"<td style='border:2px solid black'>".$donnees1['date']."</td>";
@@ -230,7 +152,7 @@
   </footer>
 
   <!-- Control Sidebar -->
-  
+
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
@@ -254,7 +176,7 @@
 <!-- SlimScroll -->
 <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 
-            
+
 <script type="text/javascript">
     $(".rating-box").show().css('left',$(".rating-n li").eq(0).offset().left);
     $(".rating-n").mouseenter(function() {
@@ -283,10 +205,10 @@
       'left':"+=45"
       }, 500)
     });
-            
-            
-            
+
+
+
 </script>
-		
+
 	</body>
 </html>
