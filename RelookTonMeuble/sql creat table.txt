@@ -35,6 +35,3 @@ CREATE TABLE `livre_or` (
 	`note` VARCHAR(5) NOT NULL ,
     PRIMARY KEY ( `id` )
 )
-
-
-INSERT INTO `utilisateur`(`login`, `mdp`, `statut`) VALUES ('admin','admin','admin')
