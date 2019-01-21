@@ -110,17 +110,17 @@
                                 <label for="desing">Design : </label>
                                 <select name="design" size="1">
                                     <option>...</option>
-                                    <option>Moderne</option>
-                                    <option>Ancien</option>
-                                    <option>Brute</option>
+                                    <option>modern</option>
+                                    <option>ancien</option>
+                                    <option>brute</option>
                                 </select>
                                     <br/><br/>
                                 <label for="type">Type : </label>
                                 <select name="type" size="1">
                                     <option>...</option>
-                                    <option>Commode</option>    
-                                    <option>Armoire</option>
-                                    <option>Table</option>
+                                    <option>commode</option>    
+                                    <option>armoire</option>
+                                    <option>table</option>
                                 </select>
                                     <br/><br/><br/><br/>
 
@@ -167,5 +167,11 @@
         <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
         <!-- SlimScroll -->
         <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- ChartJS -->
+        <script src="bower_components/chart.js/Chart.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="dist/js/pages/dashboard2.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
 	</body>
 </html>

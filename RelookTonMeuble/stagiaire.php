@@ -10,6 +10,7 @@ session_start();?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+<<<<<<< HEAD
 	<head>
 		<title>Galerie d'images</title>
 		<link rel="icon" type="image/png" href="img/logo.png" />
@@ -68,64 +69,61 @@ session_start();?>
 		    <section class="content">
 				<input type="button" value="Déconnection" OnClick="window.location.href='logout.php'"/>
 				<br />
+=======
+   <head>
+       <title>Galerie d'images</title>
+	   <link rel="icon" type="image/png" href="image/poisson_favicon.png" />
+       <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	   <style type="text/css">
+		body {
+			width: 95%;
+		}
+ 
+		div {
+			width: 22%;
+			float: left;
+			text-align: center;
+			border: 1px solid black;
+			margin: 5px;
+			padding:  5px;
+		}
+ 
+		p {
+			text-align: left;
+		}
+	   </style>
+   </head>
+   <body>
+ 
+	<h1>Galerie d'images de <?php echo $_SESSION['login'];?></h1>
+	
+	<input type="button" value="deconnection" OnClick="window.location.href='logout.php'"/>
+	<br />
+>>>>>>> 2c490fedb87d826d80b0842b3cd87562484453f7
 	<!-- Formulaire permettant de choisir les types et design des meubles afficher -->
-				<?php
-						include'connection_bd.php';		
-						//structure de base de la requète		
-						$req="SELECT id_img, nom, description FROM images where auteur='".$_SESSION['login']."'";		
-						$reponse = $bdd->query($req);		
-						//affichage des images		
-						
-			    while($result = $reponse->fetch()) {		
-							
-					$prompt='';		
-							//affiche les photos des meubles		
-					$prompt='		
-						<div> 		
-							<img src="apercu.php?id_img='.$result['id_img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" 		/>
-							<p>Description : '.$result["description"].'</p></div>';
-							
-							$direction="window.location.href='detail.php?message=".$result["id_img"]."'";
-							$direction2="window.location.href='efface.php?id=".$result["id_img"]."'";
-					echo $prompt;
-			    }
-			    $reponse->closeCursor();
-				?>	        
-		    </section>
-		    <!-- /.content -->
-		</div>
-		  <!-- /.content-wrapper -->
+	<?php
+	
+		include'connection_bd.php';
 		
-		  <footer class="main-footer">
-		    <div class="pull-right hidden-xs">
-		      <b>Version</b> 0.2.1
-		    </div>
-		    <strong>Copyright &copy; 2019 <a href="#">Relook' ton meuble</a>.</strong> Tous droits réservés.
-		  </footer>
+		//structure de base de la requète
+		$req="SELECT id_img, nom, description FROM images where auteur='".$_SESSION['login']."'";
+		$reponse = $bdd->query($req);
+		//affichage des images
 		
-		  <!-- Control Sidebar -->
-		  
-		  <!-- Add the sidebar's background. This div must be placed
-		       immediately after the control sidebar -->
-		  <div class="control-sidebar-bg"></div>
-		
-		</div>
-				<!-- ./wrapper -->
-				
-		<!-- jQuery 3 -->
-		<script src="bower_components/jquery/dist/jquery.min.js"></script>
-		<!-- Bootstrap 3.3.7 -->
-		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-		<!-- FastClick -->
-		<script src="bower_components/fastclick/lib/fastclick.js"></script>
-		<!-- AdminLTE App -->
-		<script src="dist/js/adminlte.min.js"></script>
-		<!-- Sparkline -->
-		<script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-		<!-- jvectormap  -->
-		<script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-		<script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-		<!-- SlimScroll -->
-		<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>	
+	    while($result = $reponse->fetch()) {
+			
+			$prompt='';
+					//affiche les photos des meubles
+			$prompt='
+				<div> 
+					<img src="apercu.php?id_img='.$result['id_img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" />
+					<p>Description : '.$result["description"].'</p></div>';
+					
+					$direction="window.location.href='detail.php?message=".$result["id_img"]."'";
+					$direction2="window.location.href='efface.php?id=".$result["id_img"]."'";
+			echo $prompt;
+	    }
+	    $reponse->closeCursor();
+	?>
 	</body>
 </html>

@@ -1,4 +1,4 @@
-
+<?php session_start();?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
@@ -66,20 +66,20 @@
                             <div class="col-md-3">
                                 <label for="desing">Design : </label>
                                 <select name="design" id="design" size="1">
-                                    <option>Tous</option>
-                                    <option>Moderne</option>
-                                    <option>Ancien</option>
-                                    <option>Brute</option>
+                                    <option>tous</option>
+                                    <option>modern</option>
+                                    <option>ancien</option>
+                                    <option>brute</option>
                                 </select>
                             </div>
 
                             <div class="col-md-3">
-                                <label for="type">Type : </label>
+                                <label for="type">type : </label>
                                 <select name="type" id="type" size="1">
-                                    <option>Tous</option>
-                                    <option>Commode</option>
-                                    <option>Armoire</option>
-                                    <option>Table</option>
+                                    <option>tous</option>
+                                    <option>commode</option>
+                                    <option>armoire</option>
+                                    <option>table</option>
                                 </select>
                             </div>
                             
@@ -90,14 +90,13 @@
                             </div>
                             
                             <div class="col-md-3">
-                                <input type="submit" value="Filtrer"/>
+                                <input type="submit" value="filtrer"/>
                             </div>
                         </div>
                         
                     </form>
                     
                     <?php
-			//session_start();
 			if(isset($_SESSION['connecte'])){
 			$link="'traitement.php'";
 		    echo'<input style="float: right; margin-right: 10px;" type="button" value="Ajouter image..." OnClick="window.location.href='.$link.'"/>';}
@@ -168,7 +167,7 @@
                                 //Si l'utilisateur souhaite plus de détail sur un meuble
                                 $prompt=$prompt.
                                 '<div class="panel-footer boite_pied">
-                                    <input type="button" id="detail'.$result["id_img"].'" value="Détail..." OnClick="'.$direction.'"/>
+                                    <input type="button" id="detail'.$result["id_img"].'" value="detail..." OnClick="'.$direction.'"/>
                                     <img class="boite_icon_croix" src="images/croix.png" alt="image croix" OnClick="'.$direction2.'"/>
                                 </div>   
                             </div>';
@@ -217,6 +216,11 @@
         <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
         <!-- SlimScroll -->
         <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        
+        <!-- ChartJS -->
+        <script src="bower_components/chart.js/Chart.js"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="dist/js/pages/dashboard2.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
 	</body>
 </html>
