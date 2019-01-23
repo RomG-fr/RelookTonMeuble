@@ -99,7 +99,6 @@
 		//affichage des images
 
 	    while($result = $reponse->fetch()) {
->>>>>>> ef1ad4e4ebf693e071b014898175c1d612e702ef
 
 			//compte le nombre de ligne dans la table affichée
 			$req = $bdd->query("SELECT  COUNT(*) as compteligne FROM livre_or " );
