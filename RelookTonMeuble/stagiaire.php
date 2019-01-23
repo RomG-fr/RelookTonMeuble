@@ -63,20 +63,20 @@
 				<br/>
 				<center>
 					<?php
-	
+
 						include'connection_bd.php';
-		
+
 					//structure de base de la requète
 						$req="SELECT id_img, nom, description FROM images where auteur='".$_SESSION['login']."'";
 						$reponse = $bdd->query($req);
 					//affichage des images
-		
+
 	    				while($result = $reponse->fetch()) {
-			
+
 						$prompt='';
 					//affiche les photos des meubles
 						$prompt='
-						<div> 
+						<div>
 							<img style="border:solid 5px Sienna;" src="apercu.php?id_img='.$result['id_img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" />
 						<br/>
 						<br/>
@@ -89,7 +89,7 @@
 	    			$reponse->closeCursor();
 				?>
 				</center>
-	
+
     </section>
     <!-- /.content -->
   </div>
