@@ -81,7 +81,6 @@
                 <section class="content-header">
                   <h1>
                         Envoyer une image
-                    <small>Sous-titre</small>
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a></li>
