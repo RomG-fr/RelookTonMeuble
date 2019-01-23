@@ -29,7 +29,7 @@
 		<span class="hidden-xs">Stagiaire</span>';
 		}
            echo'</a>
-		<ul class="dropdown-menu">
+		<ul class="dropdown-menu" id="ul-navbar-custom-menu">
 		
 		      <!-- User image -->
 		      <li class="user-header">';

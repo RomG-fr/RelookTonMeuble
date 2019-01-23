@@ -1,3 +1,30 @@
+
+
+.user-header{
+    background-image: url(../img/bois_sombre.png);
+    border: solid white;
+}
+
+#ul-navbar-custom-menu{
+    box-shadow: -5px 5px 20px -1px black;;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .main-header a, .sidebar-menu a{
     color: #fff;
 }
@@ -8,11 +35,12 @@
     background-image: url(../img/bois.jpg);
 }
 
-.menu_haut a{
-    color: #fff;
-}
+
 
                     /*Deb/ Menu du haut */
+
+
+
 
 
 
