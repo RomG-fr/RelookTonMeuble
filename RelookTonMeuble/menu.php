@@ -1,4 +1,4 @@
-    <header class="main-header">
+  <header class="main-header">
     <!-- Logo -->
     <a href="index.php" class="logo menu_gauche">
       <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -25,31 +25,33 @@
 		<span class="hidden-xs">Secrétaire</span>';
 		}
 		else{
-		echo'<img src="dist/img/avatar5.png" class="user-image" alt="User Image">
+		echo'<img src="dist/img/avatar5.png" class="user-image" alt="User Image">		
 		<span class="hidden-xs">Stagiaire</span>';
 		}
            echo'</a>
 		<ul class="dropdown-menu">
-
+		
 		      <!-- User image -->
 		      <li class="user-header">';
           if($_SESSION['statut']=='admin'){
-          echo'<img src="dist/img/secretaire.jpg" class="img-circle" alt="User Image">
-	        <p>
-	          Alexandra Pierce - Secrétaire
-	          <small>Membre depuis Nov. 2012</small>
-	        </p>';
-          }
-          else{
-              echo'<img src="dist/img/avatar5.png" class="img-circle" alt="User Image">';
-          }
-          echo'
-		      </li>
+            echo'
+		        <img src="dist/img/secretaire.jpg" class="img-circle" alt="User Image">
+
+		        <p>
+		          '.$_SESSION['login'].' - Secrétaire
+		          <small>Membre depuis Nov. 2012</small>
+		        </p>';}
+            else{echo'<img src="dist/img/avatar5.png" class="img-circle" alt="User Image">';
+            }
+		      echo'</li>
 		      <li class="user-footer">
 			<div class="pull-left">';
 			if($_SESSION['statut']=='stagiaire'){
 				echo'
-				  <a href="stagiaire.php" class="btn btn-default btn-flat">Mes réalisations</a>';
+				  <a href="stagiaire.php" class="btn btn-default btn-flat">Mes réalisations</a><p>
+              '.$_SESSION['login'].' - Secrétaire
+              <small>Membre depuis Nov. 2012</small>
+            </p>';
 			}
 			echo'</div>
 			<div class="pull-right">
@@ -85,12 +87,11 @@
         	  		<img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
         			</div>
 				<div class="pull-left info">
-         		 	<p  style="color: azure; font-weight: bold;">stagiaire</p>
          		 	<p  style="color: azure; font-weight: bold;">Stagiaire</p>
           			<p  style="color: silver;"><i class="fa fa-circle text-success"></i> En Ligne</p>
         			</div>';
 			}
-
+       			
       		echo'</div>';}
 	?>
       <!-- search form -->

@@ -167,7 +167,7 @@
                                 //Si l'utilisateur souhaite plus de détail sur un meuble
                                 $prompt=$prompt.
                                 '<div class="panel-footer boite_pied">
-                                    <input type="button" id="detail'.$result["id_img"].'" value="detail..." OnClick="'.$direction.'"/>
+                                    <input type="button" id="Détail'.$result["id_img"].'" value="detail..." OnClick="'.$direction.'"/>
                                     <img class="boite_icon_croix" src="images/croix.png" alt="image croix" OnClick="'.$direction2.'"/>
                                 </div>   
                             </div>';
