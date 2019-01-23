@@ -41,17 +41,18 @@
 		          '.$_SESSION['login'].' - Secrétaire
 		          <small>Membre depuis Nov. 2012</small>
 		        </p>';}
-            else{echo'<img src="dist/img/avatar5.png" class="img-circle" alt="User Image">';
+            else{echo'<img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
+            <p>
+            '.$_SESSION['login'].' - Secrétaire
+              <small>Membre depuis Nov. 2012</small>
+            </p>';
             }
 		      echo'</li>
 		      <li class="user-footer">
 			<div class="pull-left">';
 			if($_SESSION['statut']=='stagiaire'){
 				echo'
-				  <a href="stagiaire.php" class="btn btn-default btn-flat">Mes réalisations</a><p>
-              '.$_SESSION['login'].' - Secrétaire
-              <small>Membre depuis Nov. 2012</small>
-            </p>';
+				  <a href="stagiaire.php" class="btn btn-default btn-flat">Mes réalisations</a><p>';
 			}
 			echo'</div>
 			<div class="pull-right">
@@ -93,7 +94,7 @@
 			}
        			
       		echo'</div>';}
-	?>
+	   ?>
       <!-- search form -->
       <form action="#" method="get" class="sidebar-form" id="barre_de_recherche">
         <div class="input-group">
@@ -124,45 +125,54 @@
         		<i class="fa fa-envelope"></i> <span>Contact</span>
         	</a>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-user-o"></i> <span>Stage</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu" style="margin-left: 10px;">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Présentation de stage</a></li>
-            <?php
-	if(isset($_SESSION['connecte'])){
-		if($_SESSION['statut']=='admin'){
-		echo'<li><a href="analyse_candidature.php"><i class="fa fa-circle-o"></i> Demande de stage reçu</a></li>
-			<li><a href="inscription.php"><i class="fa fa-circle-o"></i> Inscription des stagiaires</a></li>';
-		}
-	}
-	else{
-		echo'<li><a href="demande_stage.php"><i class="fa fa-circle-o"></i> Demande de stage</a></li>';}
-		?>
-          </ul>
-        </li>
-         <li>
-        	<a href="livre_or.php">
-        		<i class="fa fa-book"></i> <span>Livre d'or</span>
-        	</a>
-        </li>
+        <?php
+        if(isset($_SESSION['connecte'])){
+          if($_SESSION['statut']!='stagiaire'){
+            echo'
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-user-o"></i> <span>Stage</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+            </li>';
+          }
+         
+        }
+     ?>
+    <?php
+	     if(isset($_SESSION['connecte'])){
+		      if($_SESSION['statut']=='admin'){
+		        echo'<ul class="treeview-menu" style="margin-left: 10px;">
+            <li><a href="analyse_candidature.php"><i class="fa fa-circle-o"></i> Demande de stage reçu</a></li>
+		        <li><a href="inscription.php"><i class="fa fa-circle-o"></i> Inscription des stagiaires</a></li>
+		        </ul>';
+          }
+	       }
+	     else{
+		      echo'<li><a href="demande_stage.php"><i class="fa fa-user-o"></i> Demande de stage</a></li>';}
+		?>      
+      <li>
+      	<a href="livre_or.php">
+      		<i class="fa fa-book"></i> <span>Livre d'or</span>
+      	</a>
+      </li>
         <li class="header" id="separation_b"> </li>
         <?php
-		if(!isset($_SESSION['connecte'])){
-		    echo'<li>
-			<a href="connection_ajax.php">
-				<i class="fa fa-address-book-o"></i> <span>Se Connecter</span>
-			</a>
-		</li>';}
-		if(isset($_SESSION['connecte'])){
-		    echo'<li>
-        	<a href="logout.php">
-        		<i class="fa fa-power-off"></i> <span>Déconnexion</span>
-        	</a>';}
+		      if(!isset($_SESSION['connecte'])){
+		          echo'<li>
+		      	   <a href="connection_ajax.php">
+		      		  <i class="fa fa-address-book-o"></i> <span>Se Connecter</span>
+		      	   </a>
+		          </li>';
+          }
+		      if(isset($_SESSION['connecte'])){
+		          echo'<li>
+              	<a href="logout.php">
+              		<i class="fa fa-power-off"></i> <span>Déconnexion</span>
+              	</a>';
+          }
 	?>
         </li>
       </ul>
