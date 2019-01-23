@@ -40,8 +40,7 @@
 					'type' => $_POST['type'],
 					'auteur'=> $_SESSION['login']
 					));
- 				echo $_FILES['image']['type']." size:".$_FILES['image']['size']." design:".$_POST['design']." type:".$_POST['type']." auteur:".$_SESSION['login'];
-				echo '<script>alert("L\'insertion s est bien d&eacute;  roul&eacute;e !");</script>';
+				echo '<script>alert("L\'insertion s\'est bien d\'eroulee !");</script>';
 			 }
 		  }
 	  }

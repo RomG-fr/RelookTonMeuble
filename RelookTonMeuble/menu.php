@@ -16,7 +16,6 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <?php
-          session_start();
 		if(isset($_SESSION['connecte'])){
 		   	echo'<ul class="nav navbar-nav">
           <li class="dropdown user user-menu">
@@ -33,19 +32,26 @@
 		<ul class="dropdown-menu">
 		
 		      <!-- User image -->
-		      <li class="user-header">
+		      <li class="user-header">';
+          if($_SESSION['statut']=='admin'){
+            echo'
 		        <img src="dist/img/secretaire.jpg" class="img-circle" alt="User Image">
 
 		        <p>
-		          Alexandra Pierce - Secrétaire
+		          '.$_SESSION['login'].' - Secrétaire
 		          <small>Membre depuis Nov. 2012</small>
-		        </p>
-		      </li>
+		        </p>';}
+            else{echo'<img src="dist/img/avatar5.png" class="img-circle" alt="User Image">';
+            }
+		      echo'</li>
 		      <li class="user-footer">
 			<div class="pull-left">';
 			if($_SESSION['statut']=='stagiaire'){
 				echo'
-				  <a href="stagiaire.php" class="btn btn-default btn-flat">Mes réalisations</a>';
+				  <a href="stagiaire.php" class="btn btn-default btn-flat">Mes réalisations</a><p>
+              '.$_SESSION['login'].' - Secrétaire
+              <small>Membre depuis Nov. 2012</small>
+            </p>';
 			}
 			echo'</div>
 			<div class="pull-right">
