@@ -58,30 +58,37 @@
 		    <section class="content">
 				<input type="button" value="Déconnection" OnClick="window.location.href='logout.php'"/>
 				<br />
-				<?php
+				<br/>
+				<br/>
+				<br/>
+				<center>
+					<?php
 	
-					include'connection_bd.php';
+						include'connection_bd.php';
 		
 					//structure de base de la requète
-					$req="SELECT id_img, nom, description FROM images where auteur='".$_SESSION['login']."'";
-					$reponse = $bdd->query($req);
+						$req="SELECT id_img, nom, description FROM images where auteur='".$_SESSION['login']."'";
+						$reponse = $bdd->query($req);
 					//affichage des images
 		
-	    			while($result = $reponse->fetch()) {
+	    				while($result = $reponse->fetch()) {
 			
-					$prompt='';
+						$prompt='';
 					//affiche les photos des meubles
-					$prompt='
-					<div> 
-						<img src="apercu.php?id_img='.$result['id_img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" />
-						<p>Description : '.$result["description"].'</p></div>';
-					
-					$direction="window.location.href='detail.php?message=".$result["id_img"]."'";
-					$direction2="window.location.href='efface.php?id=".$result["id_img"]."'";
-					echo $prompt;
+						$prompt='
+						<div> 
+							<img style="border:solid 5px Sienna;" src="apercu.php?id_img='.$result['id_img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" />
+						<br/>
+						<br/>
+						<b><p>Description : '.$result["description"].'</p></b></div><br/>
+						<br/>';
+						$direction="window.location.href='detail.php?message=".$result["id_img"]."'";
+						$direction2="window.location.href='efface.php?id=".$result["id_img"]."'";
+						echo $prompt;
 	   				}
 	    			$reponse->closeCursor();
 				?>
+				</center>
 	
     </section>
     <!-- /.content -->

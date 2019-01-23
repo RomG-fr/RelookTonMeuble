@@ -66,20 +66,20 @@
                             <div class="col-md-3">
                                 <label for="desing">Design : </label>
                                 <select name="design" id="design" size="1">
-                                    <option>tous</option>
-                                    <option>modern</option>
-                                    <option>ancien</option>
-                                    <option>brute</option>
+                                    <option>Tous</option>
+                                    <option>Moderne</option>
+                                    <option>Ancien</option>
+                                    <option>Brute</option>
                                 </select>
                             </div>
 
                             <div class="col-md-3">
                                 <label for="type">type : </label>
                                 <select name="type" id="type" size="1">
-                                    <option>tous</option>
-                                    <option>commode</option>
-                                    <option>armoire</option>
-                                    <option>table</option>
+                                    <option>Tous</option>
+                                    <option>Commode</option>
+                                    <option>Armoire</option>
+                                    <option>Table</option>
                                 </select>
                             </div>
                             
@@ -90,7 +90,7 @@
                             </div>
                             
                             <div class="col-md-3">
-                                <input type="submit" value="filtrer"/>
+                                <input type="submit" value="Filtrer"/>
                             </div>
                         </div>
                         
@@ -167,7 +167,7 @@
                                 //Si l'utilisateur souhaite plus de détail sur un meuble
                                 $prompt=$prompt.
                                 '<div class="panel-footer boite_pied">
-                                    <input type="button" id="Détail'.$result["id_img"].'" value="detail..." OnClick="'.$direction.'"/>
+                                    <input type="button" id="Détail'.$result["id_img"].'" value="Détail..." OnClick="'.$direction.'"/>
                                     <img class="boite_icon_croix" src="images/croix.png" alt="image croix" OnClick="'.$direction2.'"/>
                                 </div>   
                             </div>';
