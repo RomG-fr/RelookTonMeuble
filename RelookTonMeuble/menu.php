@@ -129,14 +129,7 @@
         if(isset($_SESSION['connecte'])){
           if($_SESSION['statut']!='stagiaire'){
             echo'
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-user-o"></i> <span>Stage</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-            </li>';
+            ';
           }
          
         }
@@ -144,8 +137,14 @@
     <?php
 	     if(isset($_SESSION['connecte'])){
 		      if($_SESSION['statut']=='admin'){
-		        echo'<ul class="treeview-menu" style="margin-left: 10px;">
-            <li><a href="analyse_candidature.php"><i class="fa fa-circle-o"></i> Demande de stage reçu</a></li>
+		      	echo'<li class="treeview">
+              		<a href="#">
+            	    <i class="fa fa-user-o"></i><span>Stage</span>
+            		<i class="fa fa-angle-left pull-right"></i>
+            	    <span class="pull-right-container"></span>
+            	  </a><ul class="treeview-menu" style="margin-left: 10px;">
+            	</li>
+            	<li><a href="analyse_candidature.php"><i class="fa fa-circle-o"></i> Demande de stage reçu</a></li>
 		        <li><a href="inscription.php"><i class="fa fa-circle-o"></i> Inscription des stagiaires</a></li>
 		        </ul>';
           }
