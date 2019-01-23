@@ -3,20 +3,7 @@
 <head> <meta charset="utf-8" />
     <title>Connexion</title>
 	<link rel="icon" type="image/png" href="img/logo.png" />
-	<script>
-		function verif_vide(){
-			if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
-			alert("Au moins un champs est vide");
-			return false;
-		}
-		else {
-			return true;
-			}
-		}
-		function aler(){
-			alert("la");
-		}
-	</script>
+	
 	 <meta charset="utf-8">
 		  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 		  <title>Connexion</title>
@@ -36,6 +23,8 @@
 		  <!-- AdminLTE Skins. Choose a skin from the css/skins
 		       folder instead of downloading all of them to reduce the load. -->
 		  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+          <!-- Notify animation -->
+          <link rel="stylesheet" href="plugins/bootstrap-notify/animate.css">
 
 
 
@@ -51,6 +40,23 @@
           <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
           <link rel="stylesheet" type="text/css" href="css/style_connexion.css">
           <link rel="stylesheet" href="css/perso_custom.css">
+    
+    
+            <script>
+                function verif_vide(){
+                    if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
+                        notificate("Attention", ",L'un des champs est vide.", "warning", 100000);
+                    alert("Au moins un champs est vide");
+                    return false;
+                }
+                else {
+                    return true;
+                    }
+                }
+                function aler(){
+                    alert("la");
+                }
+            </script>
 
 </head>
 
@@ -160,6 +166,9 @@
 <script src="dist/js/demo.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
+         <!-- bootstrap notify -->
+<script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
+<script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
 
 <script>
 	$(document).ready(function(){
@@ -176,12 +185,15 @@
 
 					if(data == 'Success'){
 						 // Le membre est connecté. Ajoutons lui un message dans la page HTML.
+                         notificate("Bienvenue", "Autentification réussi !", "success", 3000);
 						 $("#resultat").html("<p>"+data+"Vous avez été connecté avec succès !</p>");
 						 window.location.href='index.php';
 					}
 					else{
+                        notificate("Erreur -", " Problème d'authentification, Email ou mot de passe inconnu.", "danger", 5000);
 						 // Le membre n'a pas été connecté. (data vaut ici "failed")
 						 $("#resultat").html("<p>"+data+" Erreur lors de la connexion...</p>");
+                        
 					}
 
 				},

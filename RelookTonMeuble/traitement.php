@@ -9,7 +9,7 @@
 	   <script>
 			function verif_vide(){
 				if(document.getElementById('nom').value == ''){
-					alert("Remplissez le champs nom");
+                    notificate("Attention -", ", Le champ nom est vide.", "warning", 3000);
 					return false;
 				}
 				else {
@@ -20,11 +20,13 @@
 				var a=true;
 				var b=true;
 				if(document.getElementById('nom').value.length >50){
-					alert("nom trop long");
+					//alert("nom trop long");
+                    notificate("Attention -", ", Le nom est trop long.", "warning", 3000);
 					a=false;
 				}
 				if(document.getElementById('description').value.length >100){
-					alert("description trop longue");
+					//alert("description trop longue");
+                    notificate("Attention -", ", La description est trop longue.", "warning", 3000);
 					b=false;
 				}
 				return a && b;
