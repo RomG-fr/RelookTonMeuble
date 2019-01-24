@@ -73,9 +73,12 @@ la secretaire doit saisir le mail du stagiaire à ajouter
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
+    	<h1>
+        	Demandes de stage reçues
+        </h1>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a></li>
-        <li class="active"><a href="#">Inscrire un stagiaire</a></li>
+        <li class="active"><a href="#">Demandes de stage reçues</a></li>
       </ol>
     </section>
 

@@ -160,7 +160,7 @@
                         </div> 
                         
                       </div>
-                      <input type='submit' value='envoyer'/>
+                      <input type='submit' value='Envoyer'/>
                 </section>
                 <!-- /.content -->
               </div>

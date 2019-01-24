@@ -7,4 +7,4 @@
 							description CDATA #IMPLIED>
 			<!ATTLIST type type_meuble CDATA #REQUIRED>
 			<!ATTLIST design design_meuble CDATA #REQUIRED> 
-			]><meubles></meubles>
+			]><meubles><type type_meuble = "armoire" ><design design_meuble="modern"><meuble nom="dd" description=""></meuble><meuble nom="dd" description=""></meuble></design></type><type type_meuble = "commode" ><design design_meuble="modern"><meuble nom="cznc" description="jnzbijan"></meuble></design></type></meubles>
