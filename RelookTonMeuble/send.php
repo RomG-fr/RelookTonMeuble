@@ -12,5 +12,5 @@
 					'note' => $_POST['note']."/5",
 					'date'=>$_POST['date']
 					));
-	//header('Location:livre_or.php');
+	header('Location:livre_or.php');
 ?>

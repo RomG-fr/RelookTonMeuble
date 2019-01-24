@@ -30,7 +30,7 @@
 		$xml.='<meubles>';
 		while ($donnees = $requete -> fetch()) {
 			$xml .= '<type type_meuble = "'.$donnees['type'].'" >';
-			$requete2 = $bdd -> query("SELECT * FROM images WHERE`type`='".$donnees['type']."'")or exit(mysql_error());
+			$requete2 = $bdd -> query("SELECT * FROM images WHERE`type`='".$donnees['type']."'GROUP BY design")or exit(mysql_error());
 			//les meubles du type ...
 			while ($donnees2 = $requete2 -> fetch()) {
 				$xml .='<design design_meuble="'.$donnees2['design'].'">';
@@ -49,7 +49,7 @@
 		$fp = fopen("meublesMysqlToXml.xml", "w+");
 		fputs($fp, $xml);
 		fclose($fp);
-		echo "Export XML effectue !<br><a href='meublesMysqlToXml.xml'>Voir le fichier</a>";
+		header('location:meublesMysqlToXml.xml');
 	?>
 	</body>
 </html>

@@ -117,33 +117,7 @@
                         <label for="note">Note : </label>
                     </div>
                     <div class="col-md-8">
-                          <div class="rating row">
-                              <div class="rating-box">
-                                  <ul class="rating-preview">
-                                      <li>:'(</li>
-                                      <li>:(</li>
-                                      <li>:|</li>
-                                      <li>:)</li>
-                                      <li>:D</li>
-                                  </ul>
-                              </div>
-
-                            <ul class="rating-n">
-                              <li><a href="#1"><span><input type='radio' name='note' value='1'>1</span></a></li>
-                              <li><a href="#2"><span><input type='radio' name='note' value='2'>2</span></a></li>
-                              <li><a href="#3"><span><input type='radio' name='note' value='3'>3</span></a></li>
-                              <li><a href="#4"><span><input type='radio' name='note' value='4'>4</span></a></li>
-                              <li><a href="#5"><span><input type='radio' name='note' value='5'>5</span></a></li>
-                            </ul>
-
-                        </div>
-                        
-                        
-                        
-                        
-                        
-                        
-                    <!--
+       
                         <input type='radio' name='note' value='1'>1
                         <input type='radio' name='note' value='2'>2
                         <input type='radio' name='note' value='3' checked='check'>3
@@ -151,8 +125,9 @@
                         <input type='radio' name='note' value='5'>5
                         <br/>
                         <br/>
-                    -->
-                    </div>
+                        
+                        
+                </div>
                 
                 </div>
                 
@@ -192,31 +167,34 @@
 			//si il y à au moins 1 demande de stage
 			if($lignes['compteligne']>0){
 				$num=0;
-				echo "<table style='border:3px solid black; border-collapse: collapse;'>
-
-					<tr style='border:2px solid black'>
-					<th style='border:2px solid black'> nom prenom</th>
-					<th style='border:2px solid black'>date du poste</th>
-					<th style='border:2px solid black'>message</th>
-
-					<th style='border:2px solid black'>note</th>
-					</tr> ";
-					
+				echo "<table class='table table-striped table-hover'>
+                    <thead class='thead-dark' style='background-color: #32383e; color: #fff;'>
+    					<tr>
+    					   <th scope='col'>Nom & Prenom</th>
+    					   <th scope='col'>Date</th>
+    					   <th scope='col'>Message</th>
+    
+					      <th>note</th>
+					   </tr> 
+					</thead>
+                    <tbody>";
 				$requete=$bdd -> query('SELECT nom,prenom,message FROM livre_or')or exit(mysql_error());
 				//on stoque les deux docs sur la meme lignes ou lignes differentes ?
 					while ($donnees = $requete -> fetch()) {
-						echo "<tr style='border:2px solid black'> 
-						<td style='border:2px solid black'>".$donnees['nom']." ".$donnees['prenom']." </td> ";
+						echo "<tr> 
+						          <td>".$donnees['nom']." ".$donnees['prenom']." </td> ";
 						
 						$requete1=$bdd -> query('SELECT message,note,date FROM livre_or where nom="'.$donnees['nom'].'"and prenom="'.$donnees['prenom'].'"')or exit(mysql_error());
+                        
 						while ($donnees1 = $requete1 -> fetch()) {
-							echo"<td style='border:2px solid black'>".$donnees1['date']."</td>";
-							echo"<td style='border:2px solid black'>".$donnees1['message']."</td>";
-							echo"<td style='border:2px solid black'>".$donnees1['note']."</td>";
+							echo"<td>".$donnees1['date']."</td>";
+							echo"<td>".$donnees1['message']."</td>";
+							echo"<td>".$donnees1['note']."</td>";
 						}
 						echo"</tr> ";
 					}
-				echo"</table>
+				echo"</tbody>
+                </table>
 				<br />";
 			}
 			else{

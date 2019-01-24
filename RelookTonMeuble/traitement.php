@@ -9,7 +9,8 @@
 	   <script>
 			function verif_vide(){
 				if(document.getElementById('nom').value == ''){
-                    notificate("Attention -", ", Le champ nom est vide.", "warning", 3000);
+					notificate("Attention -", " Le champ nom est vide.", "warning", 3000);
+
 					return false;
 				}
 				else {
@@ -20,13 +21,13 @@
 				var a=true;
 				var b=true;
 				if(document.getElementById('nom').value.length >50){
-					//alert("nom trop long");
-                    notificate("Attention -", ", Le nom est trop long.", "warning", 3000);
+					notificate("Attention -", " Le nom est troop long.", "warning", 3000);
+
 					a=false;
 				}
 				if(document.getElementById('description').value.length >100){
-					//alert("description trop longue");
-                    notificate("Attention -", ", La description est trop longue.", "warning", 3000);
+					notificate("Attention -", " La description est trop longue.", "warning", 3000);
+
 					b=false;
 				}
 				return a && b;
@@ -35,7 +36,8 @@
 				return verif_vide()&&verif_length();
 			}
 	   </script>
-        
+        <!-- Notify animation -->
+  <link rel="stylesheet" href="plugins/bootstrap-notify/animate.css">
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
       <!-- Bootstrap 3.3.7 -->
       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -83,6 +85,7 @@
                 <section class="content-header">
                   <h1>
                         Envoyer une image
+                    <small>Sous-titre</small>
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="index.php"><i class="fa fa-home"></i> Accueil</a></li>
@@ -95,11 +98,11 @@
                 <section class="content">
 
 
-                    <?php include 'ajout.php'; ?>
+                    <?php //include 'ajout.php'; ?>
 
                     <!-- Formulaire pour ajouter une image -->
 
-                    <form enctype="multipart/form-data" action="#" method="POST" onsubmit="return verif();">
+                    <form enctype="multipart/form-data" action="ajout.php" method="POST" onsubmit="return verif();">
                         <div class="row" style="margin: 10px 0px 0px 15px;">
                             <div class="col-md-8">
                                 <label for="nom">Nom* : </label>
@@ -175,5 +178,8 @@
         <script src="dist/js/pages/dashboard2.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="dist/js/demo.js"></script>
+       <!-- bootstrap notify -->
+<script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
+<script src="plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
 	</body>
 </html>

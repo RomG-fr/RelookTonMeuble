@@ -46,7 +46,7 @@
                 function verif_vide(){
                     if(document.getElementById('login').value == ''&& document.getElementById('mdp').value == ''){
                         notificate("Attention", ",L'un des champs est vide.", "warning", 100000);
-                    alert("Au moins un champs est vide");
+                    //alert("Au moins un champs est vide");
                     return false;
                 }
                 else {
@@ -186,18 +186,16 @@
 					if(data == 'Success'){
 						 // Le membre est connecté. Ajoutons lui un message dans la page HTML.
                          notificate("Bienvenue", "Autentification réussi !", "success", 3000);
-						 $("#resultat").html("<p>"+data+"Vous avez été connecté avec succès !</p>");
+						   $("#resultat").html("<p>"+data+"Vous avez été connecté avec succès !</p>");
 						 window.location.href='index.php';
 					}
 					else{
                         notificate("Erreur -", " Problème d'authentification, Email ou mot de passe inconnu.", "danger", 5000);
 						 // Le membre n'a pas été connecté. (data vaut ici "failed")
-						 $("#resultat").html("<p>"+data+" Erreur lors de la connexion...</p>");
-                        
+						                        
 					}
 
 				},
-				'text'
 			 );
 		});
 	});

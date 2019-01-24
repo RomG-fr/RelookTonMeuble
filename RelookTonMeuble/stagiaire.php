@@ -67,7 +67,7 @@
 						include'connection_bd.php';
 
 					//structure de base de la requète
-						$req="SELECT id_img, nom, description FROM images where auteur='".$_SESSION['login']."'";
+						$req="SELECT id_img,img, nom, description FROM images where auteur='".$_SESSION['login']."'";
 						$reponse = $bdd->query($req);
 					//affichage des images
 
@@ -77,7 +77,7 @@
 					//affiche les photos des meubles
 						$prompt='
 						<div>
-							<img style="border:solid 5px Sienna;" src="apercu.php?id_img='.$result['id_img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" />
+							<img style="border:solid 5px Sienna;" src="'.$result['img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" />
 						<br/>
 						<br/>
 						<b><p>Description : '.$result["description"].'</p></b></div><br/>
