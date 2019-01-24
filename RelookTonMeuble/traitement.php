@@ -95,7 +95,7 @@
                 <section class="content">
 
 
-                    <?php include 'ajout_image.php'; ?>
+                    <?php include 'ajout.php'; ?>
 
                     <!-- Formulaire pour ajouter une image -->
 
