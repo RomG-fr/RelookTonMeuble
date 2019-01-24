@@ -115,10 +115,17 @@
         		<i class="fa fa-home"></i> <span>Accueil</span>
         	</a>
         </li>
-        <li>
-        	<a href="galerie.php">
+        <li class="treeview">
+        	<a href="#">
         		<i class="fa fa-photo"></i> <span>Galerie</span>
+        		<span>
+        			<i class="fa fa-angle-left pull-right"></i>
+        		</span>
         	</a>
+        	<ul class="treeview-menu" style="margin-left:10px;">
+        		<li><a href="galerie.php"><i class="fa fa-circle-o"></i>galerie</a></li>
+        		<li><a href="generationXML.php"><i class="fa fa-circle-o"></i>Realisation en XML</a></li>
+        	</ul>
         </li>
         <li>
         	<a href="contact.php">
