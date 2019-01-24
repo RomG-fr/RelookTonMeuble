@@ -104,7 +104,7 @@
                     include'connection_bd.php';
 
                     //structure de base de la requète
-                    $req='SELECT id_img, nom, description FROM images ';
+                    $req='SELECT id_img,img, nom, description FROM images ';
 
                     //liste des filtres appliquée à la selection de meubles
                     $filtre="";
@@ -156,7 +156,7 @@
                                 </div>
                             
                                 <div class="panel-body boite_corps">
-                                   <img class="image_recherche" src="apercu.php?id_img='.$result['id_img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" />
+                                   <img class="image_recherche" src="'.$result['img'].'" alt="'.$result['nom'].'" title="'.$result['nom'].'" />
                                    <p class="boite_description">Description : '.$result["description"].'</p>
                                 </div>';
 

@@ -16,11 +16,8 @@
 	}
 	//sinon on l'ajoute à la base des utilisateurs du site
 	else{
-		$req = $bdd->prepare("INSERT INTO utilisateur VALUES ('".$_POST['emauil_us']."' , '".$_POST['pass_us']."','stagiaire')");				
+		$req = $bdd->prepare("INSERT INTO utilisateur VALUES ('".$_POST['emauil_us']."' , '".$_POST['pass_us']."','stagiaire')");
 		$req -> execute();
-		$_SESSION['connecte']="oui";//on stoque en memoire que l'utilisateur s'est connecté
-		$_SESSION['login']=$_POST['emauil_us'];//on stock aussi son identifiant
-		$_SESSION['statut']="stagiaire";//et son statut dans l'entreprise
 		header('Location:inscription.php');
 		exit();	
 	}

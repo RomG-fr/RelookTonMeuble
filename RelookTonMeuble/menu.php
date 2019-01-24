@@ -115,10 +115,17 @@
         		<i class="fa fa-home"></i> <span>Accueil</span>
         	</a>
         </li>
-        <li>
-        	<a href="galerie.php">
+        <li class="treeview">
+        	<a href="#">
         		<i class="fa fa-photo"></i> <span>Galerie</span>
+        		<span>
+        			<i class="fa fa-angle-left pull-right"></i>
+        		</span>
         	</a>
+        	<ul class="treeview-menu" style="margin-left:10px;">
+        		<li><a href="galerie.php"><i class="fa fa-circle-o"></i>galerie</a></li>
+        		<li><a href="generationXML.php"><i class="fa fa-circle-o"></i>Realisation en XML</a></li>
+        	</ul>
         </li>
         <li>
         	<a href="contact.php">
@@ -129,14 +136,7 @@
         if(isset($_SESSION['connecte'])){
           if($_SESSION['statut']!='stagiaire'){
             echo'
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-user-o"></i> <span>Stage</span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-            </li>';
+            ';
           }
          
         }
@@ -144,8 +144,14 @@
     <?php
 	     if(isset($_SESSION['connecte'])){
 		      if($_SESSION['statut']=='admin'){
-		        echo'<ul class="treeview-menu" style="margin-left: 10px;">
-            <li><a href="analyse_candidature.php"><i class="fa fa-circle-o"></i> Demande de stage reçu</a></li>
+		      	echo'<li class="treeview">
+              		<a href="#">
+            	    <i class="fa fa-user-o"></i><span>Stage</span>
+            		<i class="fa fa-angle-left pull-right"></i>
+            	    <span class="pull-right-container"></span>
+            	  </a><ul class="treeview-menu" style="margin-left: 10px;">
+            	</li>
+            	<li><a href="analyse_candidature.php"><i class="fa fa-circle-o"></i> Demande de stage reçu</a></li>
 		        <li><a href="inscription.php"><i class="fa fa-circle-o"></i> Inscription des stagiaires</a></li>
 		        </ul>';
           }
