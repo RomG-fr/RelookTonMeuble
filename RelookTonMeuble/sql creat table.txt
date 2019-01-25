@@ -1,0 +1,37 @@
+CREATE TABLE `images` (
+    `id_img` INT NOT NULL AUTO_INCREMENT ,
+    `nom` VARCHAR( 50 ) NOT NULL ,
+	`description` VARCHAR( 100 ) NOT NULL ,
+	`img` VARCHAR(100) NOT NULL ,
+	`extension` VARCHAR( 25 ) NOT NULL ,
+    `taille` VARCHAR( 25 ) NOT NULL ,
+	`design` VARCHAR( 25 ) NOT NULL ,
+	`type` VARCHAR( 25 ) NOT NULL ,
+	`auteur` VARCHAR( 50 ) NOT NULL ,
+    PRIMARY KEY ( `id_img` )
+)
+
+CREATE TABLE `dossier` (
+    `id` INT NOT NULL AUTO_INCREMENT ,
+    `nom` VARCHAR( 50 ) NOT NULL ,
+	`prenom` VARCHAR( 50 ) NOT NULL ,
+	`path_lettre_motivation` VARCHAR( 100 ) NOT NULL ,
+	`path_cv` VARCHAR( 100 ) NOT NULL ,
+	`date` VARCHAR( 25 ) NOT NULL ,
+    PRIMARY KEY ( `id` )
+)
+
+CREATE TABLE `utilisateur` (
+    `login` VARCHAR( 50 ) NOT NULL ,
+	`mdp` VARCHAR( 50 ) NOT NULL ,
+	`statut` VARCHAR( 50 ) NOT NULL ,
+    PRIMARY KEY ( `login` )
+)
+CREATE TABLE `livre_or` (
+    `id` INT NOT NULL AUTO_INCREMENT ,
+    `nom` VARCHAR( 50 ) NOT NULL ,
+	`prenom` VARCHAR( 50 ) NOT NULL ,
+	`message` VARCHAR(100) NOT NULL ,
+	`note` VARCHAR(5) NOT NULL ,
+    PRIMARY KEY ( `id` )
+)
